@@ -8,6 +8,13 @@
       "when": 1791259786234,
       "tag": "0000_employees_verification",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791903683029,
+      "tag": "0001_employees_verification",
+      "breakpoints": true
     }
   ]
 }
