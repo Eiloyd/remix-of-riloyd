@@ -15,6 +15,13 @@
       "when": 1791903683029,
       "tag": "0001_employees_verification",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1791903709535,
+      "tag": "0002_drop_auto_admin",
+      "breakpoints": true
     }
   ]
 }
