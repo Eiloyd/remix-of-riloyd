@@ -1,4 +1,5 @@
 ## In progress
+- [ ] Optimize all website images while preserving appearance
 - [ ] Add real investor, mentor and team profiles when names, roles and photos are supplied
 
 ## Done
