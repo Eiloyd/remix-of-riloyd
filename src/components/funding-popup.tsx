@@ -9,7 +9,6 @@ import {
   type FundingApplication,
 } from "@/lib/funding-popup.functions";
 
-const STORAGE_KEY = "riloyd-funding-popup-dismissed";
 const stages = ["Idea", "Prototype / MVP", "Early Revenue", "Growth", "Scaling"];
 const industries = ["Technology", "Healthcare", "Consumer & FMCG", "Education", "Manufacturing", "Financial Services", "Agriculture", "Real Estate", "Professional Services", "Other"];
 
@@ -23,19 +22,19 @@ export function FundingPopup() {
   const [form, setForm] = useState<FundingApplication>(empty);
   const [errors, setErrors] = useState<Partial<Record<keyof FundingApplication, string>>>({});
   const [busy, setBusy] = useState(false);
+  const [showForm, setShowForm] = useState(false);
   const [code, setCode] = useState<string | null>(null);
   const [failure, setFailure] = useState<string | null>(null);
   const submit = useServerFn(submitFundingApplication);
 
   useEffect(() => {
-    if (sessionStorage.getItem(STORAGE_KEY)) return;
     const t = setTimeout(() => setOpen(true), 1200);
     return () => clearTimeout(t);
   }, []);
 
   const change = (open: boolean) => {
     setOpen(open);
-    if (!open) sessionStorage.setItem(STORAGE_KEY, "1");
+    if (!open) setShowForm(false);
   };
 
   const set = (k: keyof FundingApplication, v: string) => {
@@ -107,6 +106,18 @@ export function FundingPopup() {
                   <p className="mt-3 font-semibold text-foreground">Application received!</p>
                   <p className="mt-1 text-sm text-muted-foreground">Your reference: <b className="text-foreground">{code}</b></p>
                   <button type="button" onClick={() => change(false)} className="mt-5 rounded-md bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground">Close</button>
+                </div>
+              ) : !showForm ? (
+                <div className="mt-6 space-y-4">
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li>• Total non-refundable grant up to <b className="text-foreground">₹22.5 Lakhs</b></li>
+                    <li>• 1st ₹10 Lakhs · 2nd ₹7.5 Lakhs · 3rd ₹5 Lakhs</li>
+                    <li>• Investor connect, mentorship &amp; business evaluation</li>
+                    <li>• Strategic networking, national &amp; global exposure</li>
+                  </ul>
+                  <button type="button" onClick={() => setShowForm(true)} className="flex w-full items-center justify-center gap-2 rounded-md bg-primary py-3.5 text-sm font-bold uppercase tracking-wide text-primary-foreground transition hover:opacity-90">
+                    <Rocket className="h-4 w-4" /> Register Now
+                  </button>
                 </div>
               ) : (
                 <form onSubmit={onSubmit} noValidate className="mt-5 space-y-3">
