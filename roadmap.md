@@ -2,6 +2,9 @@
 - [ ] Add real investor, mentor and team profiles when names, roles and photos are supplied
 
 ## Done
+- [x] About page: Vision, Mission, Management (7 roles), Who We Serve, What We Do, How We Think, Our Difference sections
+- [x] Footer About Us column + Our People group under Connect
+- [x] Admin screen (/admin) to add, edit and remove employees
 - [x] Replaced Startup & Business Incubation visuals with the supplied Riloyd lobby image
 - [x] Premium Workspaces cards now use the five supplied workspace photos; "People. Ideas. Opportunities" and "Take the first step" backgrounds restored
 - [x] Added dedicated country pages for India, UK, UAE, Canada, USA, Singapore, Europe and Australia

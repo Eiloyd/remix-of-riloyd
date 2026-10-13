@@ -13,4 +13,4 @@
 - Keep the Global Presence experience in its own `/global-presence` route, linked from the homepage, because it is a distinct content destination rather than a service detail.
 - Keep the full company story in a dedicated `/about` route, while the homepage retains only a short About teaser, so the navigation and metadata remain clear.
 - Keep market content centralized and render each country through `/global-presence/$slug`, so hub, footer and About links stay consistent.
-- Keep Investors, Mentors and Team as footer-linked public pages without inventing personal profiles, so real identities can be added only from supplied information.
+- Keep Investors, Mentors and Team as public pages; employee verification goes through security-definer database functions and admins manage records at `/admin`, so codes stay hashed and never reach the browser.
