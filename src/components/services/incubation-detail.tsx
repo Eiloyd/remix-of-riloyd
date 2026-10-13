@@ -1,14 +1,16 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, BadgeCheck, BarChart3, BriefcaseBusiness, Building2, ChevronRight, CircleDollarSign, Cog, FileCheck2, Layers3, Lightbulb, Network, Rocket, ShieldCheck, UsersRound, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import lobbyAsset from "@/assets/riloyd-sunset-corporate-lobby.png.asset.json";
-import coworkingAsset from "@/assets/incubation-coworking.png.asset.json";
-import cabinsAsset from "@/assets/incubation-private-cabins.png.asset.json";
-import virtualOfficeAsset from "@/assets/incubation-virtual-office.png.asset.json";
-import meetingRoomsAsset from "@/assets/incubation-meeting-rooms.png.asset.json";
+import lobbyAsset from "@/assets/riloyd-sunset-corporate-lobby.png.optimized.webp.asset.json";
+import coworkingAsset from "@/assets/incubation-coworking.png.optimized.webp.asset.json";
+import cabinsAsset from "@/assets/incubation-private-cabins.png.optimized.webp.asset.json";
+import virtualOfficeAsset from "@/assets/incubation-virtual-office.png.optimized.webp.asset.json";
+import meetingRoomsAsset from "@/assets/incubation-meeting-rooms.png.optimized.webp.asset.json";
 import loungeAsset from "@/assets/incubation-community-lounge.webp.asset.json";
-import communityImage from "@/assets/incubation-community.jpg";
-import futureImage from "@/assets/incubation-future.jpg";
+import communityImageAsset from "@/assets/incubation-community.jpg.optimized.webp.asset.json";
+const communityImage = communityImageAsset.url;
+import futureImageAsset from "@/assets/incubation-future.jpg.optimized.webp.asset.json";
+const futureImage = futureImageAsset.url;
 
 const lobbyImage = lobbyAsset.url;
 

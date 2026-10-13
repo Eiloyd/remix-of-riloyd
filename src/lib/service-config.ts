@@ -15,12 +15,13 @@ export type ServiceConfig = {
   highlights: [string, string][];
 };
 
-import researchAsset from "@/assets/research-hero.png.asset.json";
-import fundingAsset from "@/assets/funding-hero.png.asset.json";
-import growthImage from "@/assets/growth-hero.jpg";
-import transformationAsset from "@/assets/transformation-hero.png.asset.json";
-import manpowerAsset from "@/assets/manpower-hero.png.asset.json";
-import incubationAsset from "@/assets/riloyd-sunset-corporate-lobby.png.asset.json";
+import researchAsset from "@/assets/research-hero.png.optimized.webp.asset.json";
+import fundingAsset from "@/assets/funding-hero.png.optimized.webp.asset.json";
+import growthImageAsset from "@/assets/growth-hero.jpg.optimized.webp.asset.json";
+const growthImage = growthImageAsset.url;
+import transformationAsset from "@/assets/transformation-hero.png.optimized.webp.asset.json";
+import manpowerAsset from "@/assets/manpower-hero.png.optimized.webp.asset.json";
+import incubationAsset from "@/assets/riloyd-sunset-corporate-lobby.png.optimized.webp.asset.json";
 
 export const serviceConfigs: Record<string, ServiceConfig> = {
   research: {

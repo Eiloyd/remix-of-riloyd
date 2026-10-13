@@ -4,8 +4,8 @@ import {
   ArrowRight, BarChart3, ChevronRight, ClipboardList, FileText, Heart, Lightbulb, LineChart,
   Presentation, Rocket, Search, Settings, ShieldCheck, Target, TrendingUp, Users, Zap, Plus, Minus,
 } from "lucide-react";
-import heroAsset from "@/assets/research-hero.png.asset.json";
-import overviewAsset from "@/assets/research-overview.png.asset.json";
+import heroAsset from "@/assets/research-hero.png.optimized.webp.asset.json";
+import overviewAsset from "@/assets/research-overview.png.optimized.webp.asset.json";
 
 const stats = [
   [Search, "500+", "Research Projects Completed"],

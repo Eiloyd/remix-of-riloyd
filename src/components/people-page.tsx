@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import type { ReactNode } from "react";
 import { ProfileGrid } from "@/components/people-profiles";
 import type { PersonGroup } from "@/lib/people-config";
-import lobbyAsset from "@/assets/riloyd-sunset-corporate-lobby.png.asset.json";
+import lobbyAsset from "@/assets/riloyd-sunset-corporate-lobby.png.optimized.webp.asset.json";
 
 type PeoplePageProps = {
   eyebrow: string;

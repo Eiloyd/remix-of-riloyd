@@ -21,9 +21,9 @@ import {
   Building2,
   Youtube,
 } from "lucide-react";
-import heroAsset from "@/assets/riloyd-mountain.png.asset.json";
-import officeAsset from "@/assets/riloyd-office.png.asset.json";
-import contactOfficeAsset from "@/assets/riloyd-contact-office.png.asset.json";
+import heroAsset from "@/assets/riloyd-mountain.png.optimized.webp.asset.json";
+import officeAsset from "@/assets/riloyd-office.png.optimized.webp.asset.json";
+import contactOfficeAsset from "@/assets/riloyd-contact-office.png.optimized.webp.asset.json";
 import { ServiceAdvisor } from "@/components/service-advisor";
 
 export const Route = createFileRoute("/")({

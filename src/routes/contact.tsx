@@ -18,7 +18,7 @@ import {
   Youtube,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import officeAsset from "@/assets/riloyd-contact-office.png.asset.json";
+import officeAsset from "@/assets/riloyd-contact-office.png.optimized.webp.asset.json";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

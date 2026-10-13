@@ -2,9 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BarChart3, Globe2, Handshake, MapPin, Menu, Network, PackageOpen, Target, TrendingUp, UsersRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { marketConfigs, marketOrder } from "@/lib/market-config";
-import globeImage from "@/assets/global-globe.jpg";
-import mapImage from "@/assets/global-map.jpg";
-import boardroomImage from "@/assets/global-boardroom.jpg";
+import globeImageAsset from "@/assets/global-globe.jpg.optimized.webp.asset.json";
+const globeImage = globeImageAsset.url;
+import mapImageAsset from "@/assets/global-map.jpg.optimized.webp.asset.json";
+const mapImage = mapImageAsset.url;
+import boardroomImageAsset from "@/assets/global-boardroom.jpg.optimized.webp.asset.json";
+const boardroomImage = boardroomImageAsset.url;
 
 export const Route = createFileRoute("/global-presence")({
   head: () => ({ meta: [

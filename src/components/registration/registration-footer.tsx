@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import logoAsset from "@/assets/riloyd-logo.png.asset.json";
-import globalAsset from "@/assets/riloyd-global.png.asset.json";
+import logoAsset from "@/assets/riloyd-logo.png.optimized.webp.asset.json";
+import globalAsset from "@/assets/riloyd-global.png.optimized.webp.asset.json";
 
 export function RegistrationFooter() {
   return (

@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, House } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoAsset from "@/assets/riloyd-logo.png.asset.json";
+import logoAsset from "@/assets/riloyd-logo.png.optimized.webp.asset.json";
 
 export function RegistrationHeader() {
   return (
