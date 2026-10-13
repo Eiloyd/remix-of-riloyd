@@ -4,11 +4,11 @@ import {
   ArrowRight, BarChart3, Building2, Calculator, ChevronRight, Coins, FileText, Handshake,
   Landmark, Minus, Plus, RefreshCw, Search, Sprout, Users, Wallet,
 } from "lucide-react";
-import heroAsset from "@/assets/funding-hero.png.asset.json";
-import equityAsset from "@/assets/funding-equity.png.asset.json";
-import debtAsset from "@/assets/funding-debt.png.asset.json";
-import grantsAsset from "@/assets/funding-grants.png.asset.json";
-import investorsAsset from "@/assets/funding-investors.png.asset.json";
+import heroAsset from "@/assets/funding-hero.png.optimized.webp.asset.json";
+import equityAsset from "@/assets/funding-equity.png.optimized.webp.asset.json";
+import debtAsset from "@/assets/funding-debt.png.optimized.webp.asset.json";
+import grantsAsset from "@/assets/funding-grants.png.optimized.webp.asset.json";
+import investorsAsset from "@/assets/funding-investors.png.optimized.webp.asset.json";
 
 const fundingTypes = [
   [equityAsset.url, Coins, "Equity Funding", ["Investor connections", "Pitch support", "Valuation guidance"]],

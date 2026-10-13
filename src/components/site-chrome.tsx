@@ -2,8 +2,9 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, Menu, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoAsset from "@/assets/riloyd-logo.png.asset.json";
-import darkLogo from "@/assets/riloyd-logo-dark.png";
+import logoAsset from "@/assets/riloyd-logo.png.optimized.webp.asset.json";
+import darkLogoAsset from "@/assets/riloyd-logo-dark.png.optimized.webp.asset.json";
+const darkLogo = darkLogoAsset.url;
 import globalGlossy from "@/assets/riloyd-global-glossy.png.asset.json";
 import globalLight from "@/assets/riloyd-global-light.png.asset.json";
 import { serviceOrder, serviceConfigs } from "@/lib/service-config";
@@ -78,7 +79,7 @@ export function SiteFooter() {
   }, []);
   return <footer className="border-t border-border bg-background text-foreground">
     <div className="mx-auto grid max-w-[1380px] grid-cols-2 gap-x-5 gap-y-9 px-5 py-11 sm:px-6 md:grid-cols-3 lg:grid-cols-[1.2fr_.65fr_.85fr_1fr_1fr_.8fr] lg:px-12">
-      <div className="col-span-2 md:col-span-3 lg:col-span-1"><Link to="/" aria-label="Riloyd home"><img src={theme === "light" ? darkLogo : logoAsset.url} alt="Riloyd" className="h-auto w-36" decoding="async" /></Link><p className="mt-4 max-w-xs text-xs leading-relaxed text-muted-foreground">RILOYD helps ambitious businesses find expertise, capital and opportunities for sustainable growth.</p></div>
+      <div className="col-span-2 md:col-span-3 lg:col-span-1"><Link to="/" aria-label="Riloyd home"><img src={theme === "light" ? darkLogo : logoAsset.url} alt="Riloyd" loading="lazy" className="h-auto w-36" decoding="async" /></Link><p className="mt-4 max-w-xs text-xs leading-relaxed text-muted-foreground">RILOYD helps ambitious businesses find expertise, capital and opportunities for sustainable growth.</p></div>
       <div><h2 className="text-xs font-bold">Explore</h2><div className="mt-4 flex flex-col gap-2 text-xs text-muted-foreground"><Link to="/">Home</Link><Link to="/about">About</Link><Link to="/contact">Contact</Link><Link to="/register">Register</Link></div></div>
       <div><h2 className="text-xs font-bold">About Us</h2><div className="mt-4 flex flex-col gap-2 text-xs text-muted-foreground">{aboutLinks.map((l) => <Link key={l.hash} to="/about" hash={l.hash}>{l.label}</Link>)}</div></div>
       <div><h2 className="text-xs font-bold">Our Services</h2><div className="mt-4 flex flex-col gap-2 text-xs text-muted-foreground">{serviceOrder.map((key) => { const service = serviceConfigs[key]; return service ? <Link key={key} to="/services/$slug" params={{ slug: service.slug }}>{service.shortTitle}</Link> : null; })}</div></div>

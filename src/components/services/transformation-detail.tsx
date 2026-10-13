@@ -4,11 +4,11 @@ import {
   Coins, Gauge, GitBranch, Monitor, Search, Settings, Target, Users, Workflow,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroAsset from "@/assets/transformation-hero.png.asset.json";
-import overviewAsset from "@/assets/transformation-overview.png.asset.json";
-import processAsset from "@/assets/transformation-process.png.asset.json";
-import reportAsset from "@/assets/transformation-report.png.asset.json";
-import stairsAsset from "@/assets/transformation-stairs.png.asset.json";
+import heroAsset from "@/assets/transformation-hero.png.optimized.webp.asset.json";
+import overviewAsset from "@/assets/transformation-overview.png.optimized.webp.asset.json";
+import processAsset from "@/assets/transformation-process.png.optimized.webp.asset.json";
+import reportAsset from "@/assets/transformation-report.png.optimized.webp.asset.json";
+import stairsAsset from "@/assets/transformation-stairs.png.optimized.webp.asset.json";
 
 const solutions = [
   [BarChart3, "Business Assessment & Transformation Strategy", "Understand your current position and build a clear transformation roadmap."],

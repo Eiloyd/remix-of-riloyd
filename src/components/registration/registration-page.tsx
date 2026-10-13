@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight, Check, CheckCircle2, FileUp, LockKeyhole } from 
 import { Button } from "@/components/ui/button";
 import { submitRegistration } from "@/lib/registration.functions";
 import type { RegistrationConfig, RegistrationField } from "@/lib/registration-config";
-import teamAsset from "@/assets/riloyd-team.png.asset.json";
+import teamAsset from "@/assets/riloyd-team.png.optimized.webp.asset.json";
 
 const inputClass = "min-h-12 w-full rounded-md border border-border bg-surface px-4 text-sm text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary";
 

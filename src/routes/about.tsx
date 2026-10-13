@@ -23,11 +23,15 @@ import {
   UsersRound,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/about-global-hero.jpg";
-import leadershipImage from "@/assets/about-leadership.jpg";
-import visionImage from "@/assets/about-vision.jpg";
-import mapImage from "@/assets/global-map.jpg";
-import logoAsset from "@/assets/riloyd-logo.png.asset.json";
+import heroImageAsset from "@/assets/about-global-hero.jpg.optimized.webp.asset.json";
+const heroImage = heroImageAsset.url;
+import leadershipImageAsset from "@/assets/about-leadership.jpg.optimized.webp.asset.json";
+const leadershipImage = leadershipImageAsset.url;
+import visionImageAsset from "@/assets/about-vision.jpg.optimized.webp.asset.json";
+const visionImage = visionImageAsset.url;
+import mapImageAsset from "@/assets/global-map.jpg.optimized.webp.asset.json";
+const mapImage = mapImageAsset.url;
+import logoAsset from "@/assets/riloyd-logo.png.optimized.webp.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({

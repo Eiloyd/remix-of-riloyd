@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { serviceConfigs, serviceOrder } from "@/lib/service-config";
-import officeAsset from "@/assets/riloyd-office.png.asset.json";
+import officeAsset from "@/assets/riloyd-office.png.optimized.webp.asset.json";
 
 export const Route = createFileRoute("/services/")({
   head: () => ({

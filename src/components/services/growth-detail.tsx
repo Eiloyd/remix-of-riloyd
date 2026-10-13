@@ -5,11 +5,16 @@ import {
   Target, TrendingUp, UserRoundSearch, UsersRound, Waypoints,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/growth-hero.jpg";
-import targetImage from "@/assets/growth-target.jpg";
-import processImage from "@/assets/growth-process.jpg";
-import reportImage from "@/assets/growth-report.jpg";
-import ctaImage from "@/assets/growth-cta.jpg";
+import heroImageAsset from "@/assets/growth-hero.jpg.optimized.webp.asset.json";
+const heroImage = heroImageAsset.url;
+import targetImageAsset from "@/assets/growth-target.jpg.optimized.webp.asset.json";
+const targetImage = targetImageAsset.url;
+import processImageAsset from "@/assets/growth-process.jpg.optimized.webp.asset.json";
+const processImage = processImageAsset.url;
+import reportImageAsset from "@/assets/growth-report.jpg.optimized.webp.asset.json";
+const reportImage = reportImageAsset.url;
+import ctaImageAsset from "@/assets/growth-cta.jpg.optimized.webp.asset.json";
+const ctaImage = ctaImageAsset.url;
 
 const solutions = [
   [BarChart3, "Sales Strategy", "Build a clear sales roadmap aligned with business goals."],

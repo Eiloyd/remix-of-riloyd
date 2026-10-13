@@ -3,9 +3,9 @@ import {
   ArrowRight, BadgeCheck, BarChart3, CalendarDays, ChevronRight, ClipboardList, FileText,
   Headphones, MessageSquare, Search, Settings, ShieldCheck, TrendingUp, UserPlus, Users, Wallet,
 } from "lucide-react";
-import heroAsset from "@/assets/manpower-hero.png.asset.json";
-import valuesAsset from "@/assets/manpower-values.png.asset.json";
-import teamAsset from "@/assets/manpower-team.png.asset.json";
+import heroAsset from "@/assets/manpower-hero.png.optimized.webp.asset.json";
+import valuesAsset from "@/assets/manpower-values.png.optimized.webp.asset.json";
+import teamAsset from "@/assets/manpower-team.png.optimized.webp.asset.json";
 
 const heroPoints = [
   [Users, "Skilled Workforce"],
