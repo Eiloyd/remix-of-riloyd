@@ -23,3 +23,6 @@
 - [x] Performance: lazy-load images, smoothness pass; keep desktop intact, improve mobile space usage
 - [x] Header 1.5cm, logo sizing, services strip, Get in Touch sizing, dark default theme
 - [x] About page with generated imagery
+
+- [x] Homepage Startup Funding popup (poster + Apply form, floating Apply Now button)
+- [ ] Store popup applications in the database (currently validated only)
