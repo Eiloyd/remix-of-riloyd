@@ -2,15 +2,22 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   BarChart3,
+  Briefcase,
   Building2,
   Check,
   Compass,
+  Crown,
+  Eye,
   Factory,
+  Flag,
   Globe2,
   Handshake,
+  Landmark,
   Lightbulb,
   Rocket,
   SearchCheck,
+  Settings2,
+  ShieldCheck,
   Target,
   TrendingUp,
   UsersRound,
@@ -37,10 +44,34 @@ export const Route = createFileRoute("/about")({
 });
 
 const advisoryOverview = [
-  { icon: UsersRound, label: "Who We Serve", copy: "Founders, growing businesses, enterprises, investors and stakeholders navigating important moments." },
-  { icon: Compass, label: "What We Do", copy: "We bring structure to complex choices through research, strategy, commercial insight and execution planning." },
-  { icon: Lightbulb, label: "How We Think", copy: "We examine the wider business context, challenge assumptions and connect each decision to measurable outcomes." },
-  { icon: Handshake, label: "Our Difference", copy: "We work as a long-term advisory partner—bringing direction, perspective and practical momentum." },
+  { icon: UsersRound, label: "Who We Serve", hash: "who-we-serve", copy: "Founders, growing businesses, enterprises, investors and stakeholders navigating important moments." },
+  { icon: Compass, label: "What We Do", hash: "what-we-do", copy: "We bring structure to complex choices through research, strategy, commercial insight and execution planning." },
+  { icon: Lightbulb, label: "How We Think", hash: "how-we-think", copy: "We examine the wider business context, challenge assumptions and connect each decision to measurable outcomes." },
+  { icon: Handshake, label: "Our Difference", hash: "our-difference", copy: "We work as a long-term advisory partner—bringing direction, perspective and practical momentum." },
+];
+
+const missionPoints = [
+  "Bring evidence and independent thinking to every important decision.",
+  "Connect strategy, capital, operations and markets into one coherent direction.",
+  "Stay alongside leadership teams from diagnosis through to execution.",
+  "Build relationships measured by long-term business progress.",
+];
+
+const managementRoles = [
+  { icon: Crown, title: "Chairman", copy: "Sets the long-term direction of the firm and safeguards its values and governance." },
+  { icon: Briefcase, title: "Managing Director", copy: "Leads the firm's overall strategy, client relationships and growth priorities." },
+  { icon: TrendingUp, title: "Chief Executive Officer", copy: "Turns strategy into delivery across services, markets and teams." },
+  { icon: Settings2, title: "Chief Operating Officer", copy: "Owns operations, quality of delivery and the systems that support client work." },
+  { icon: Landmark, title: "Chief Financial Officer", copy: "Oversees financial planning, controls and funding-related advisory standards." },
+  { icon: Target, title: "Chief Strategy Officer", copy: "Shapes research, advisory methodology and the firm's strategic thinking." },
+  { icon: Globe2, title: "Head of Global Partnerships", copy: "Builds and manages relationships across Riloyd's international markets." },
+];
+
+const thinkingPrinciples = [
+  { icon: SearchCheck, title: "Evidence over assumption", copy: "We test beliefs against data, market signals and the economics of the business before forming a view." },
+  { icon: Compass, title: "The whole business, not one problem", copy: "We look at how a decision affects strategy, capital, people, operations and risk together." },
+  { icon: ShieldCheck, title: "Independent judgement", copy: "We say what we believe is right for the business, even when it is not the easiest message." },
+  { icon: Target, title: "Outcomes we can measure", copy: "Every recommendation is linked to priorities, owners and results that can be tracked over time." },
 ];
 
 const comparison = [
