@@ -71,7 +71,7 @@ export function FundingPopup() {
   return (
     <>
       <Dialog open={open} onOpenChange={change}>
-        <DialogContent className="max-h-[92vh] w-[96vw] max-w-5xl overflow-y-auto border-primary/30 bg-card p-0 sm:rounded-xl [&>button]:hidden">
+        <DialogContent className="max-h-[92vh] w-[96vw] max-w-5xl overflow-y-auto border-primary/30 bg-background p-0 sm:rounded-xl [&>button]:hidden">
           <button
             type="button"
             onClick={() => change(false)}
@@ -90,7 +90,7 @@ export function FundingPopup() {
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="p-6 sm:p-8">
+            <div className="bg-background p-6 sm:p-8">
               <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" /> Registrations Open
               </span>
