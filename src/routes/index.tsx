@@ -25,6 +25,7 @@ import heroAsset from "@/assets/riloyd-mountain.png.optimized.webp.asset.json";
 import officeAsset from "@/assets/riloyd-office.png.optimized.webp.asset.json";
 import contactOfficeAsset from "@/assets/riloyd-contact-office.png.optimized.webp.asset.json";
 import { ServiceAdvisor } from "@/components/service-advisor";
+import { FundingPopup } from "@/components/funding-popup";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -203,6 +204,7 @@ function Index() {
       </section>
 
 
+      <FundingPopup />
     </main>
   );
 }
