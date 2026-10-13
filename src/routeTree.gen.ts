@@ -10,33 +10,257 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as GlobalPresenceRouteImport } from './routes/global-presence'
+import { Route as GlobalPresenceSlugRouteImport } from './routes/global-presence.$slug'
+import { Route as InvestorsIndexRouteImport } from './routes/investors.index'
+import { Route as InvestorsSlugRouteImport } from './routes/investors.$slug'
+import { Route as MentorsIndexRouteImport } from './routes/mentors.index'
+import { Route as MentorsSlugRouteImport } from './routes/mentors.$slug'
+import { Route as RegisterIndexRouteImport } from './routes/register/index'
+import { Route as RegisterBusinessRouteImport } from './routes/register/business'
+import { Route as RegisterInvestorRouteImport } from './routes/register/investor'
+import { Route as RegisterMentorRouteImport } from './routes/register/mentor'
+import { Route as RegisterStartupRouteImport } from './routes/register/startup'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
+import { Route as TeamIndexRouteImport } from './routes/team.index'
+import { Route as TeamSlugRouteImport } from './routes/team.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GlobalPresenceRoute = GlobalPresenceRouteImport.update({
+  id: '/global-presence',
+  path: '/global-presence',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GlobalPresenceSlugRoute = GlobalPresenceSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => GlobalPresenceRoute,
+} as any)
+const InvestorsIndexRoute = InvestorsIndexRouteImport.update({
+  id: '/investors/',
+  path: '/investors/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvestorsSlugRoute = InvestorsSlugRouteImport.update({
+  id: '/investors/$slug',
+  path: '/investors/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorsIndexRoute = MentorsIndexRouteImport.update({
+  id: '/mentors/',
+  path: '/mentors/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorsSlugRoute = MentorsSlugRouteImport.update({
+  id: '/mentors/$slug',
+  path: '/mentors/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterIndexRoute = RegisterIndexRouteImport.update({
+  id: '/register/',
+  path: '/register/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterBusinessRoute = RegisterBusinessRouteImport.update({
+  id: '/register/business',
+  path: '/register/business',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterInvestorRoute = RegisterInvestorRouteImport.update({
+  id: '/register/investor',
+  path: '/register/investor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterMentorRoute = RegisterMentorRouteImport.update({
+  id: '/register/mentor',
+  path: '/register/mentor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterStartupRoute = RegisterStartupRouteImport.update({
+  id: '/register/startup',
+  path: '/register/startup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesSlugRoute = ServicesSlugRouteImport.update({
+  id: '/services/$slug',
+  path: '/services/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamIndexRoute = TeamIndexRouteImport.update({
+  id: '/team/',
+  path: '/team/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamSlugRoute = TeamSlugRouteImport.update({
+  id: '/team/$slug',
+  path: '/team/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/global-presence': typeof GlobalPresenceRouteWithChildren
+  '/global-presence/$slug': typeof GlobalPresenceSlugRoute
+  '/investors/$slug': typeof InvestorsSlugRoute
+  '/mentors/$slug': typeof MentorsSlugRoute
+  '/register/business': typeof RegisterBusinessRoute
+  '/register/investor': typeof RegisterInvestorRoute
+  '/register/mentor': typeof RegisterMentorRoute
+  '/register/startup': typeof RegisterStartupRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/team/$slug': typeof TeamSlugRoute
+  '/investors/': typeof InvestorsIndexRoute
+  '/mentors/': typeof MentorsIndexRoute
+  '/register/': typeof RegisterIndexRoute
+  '/services/': typeof ServicesIndexRoute
+  '/team/': typeof TeamIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/global-presence': typeof GlobalPresenceRouteWithChildren
+  '/global-presence/$slug': typeof GlobalPresenceSlugRoute
+  '/investors/$slug': typeof InvestorsSlugRoute
+  '/mentors/$slug': typeof MentorsSlugRoute
+  '/register/business': typeof RegisterBusinessRoute
+  '/register/investor': typeof RegisterInvestorRoute
+  '/register/mentor': typeof RegisterMentorRoute
+  '/register/startup': typeof RegisterStartupRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/team/$slug': typeof TeamSlugRoute
+  '/investors': typeof InvestorsIndexRoute
+  '/mentors': typeof MentorsIndexRoute
+  '/register': typeof RegisterIndexRoute
+  '/services': typeof ServicesIndexRoute
+  '/team': typeof TeamIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/global-presence': typeof GlobalPresenceRouteWithChildren
+  '/global-presence/$slug': typeof GlobalPresenceSlugRoute
+  '/investors/$slug': typeof InvestorsSlugRoute
+  '/mentors/$slug': typeof MentorsSlugRoute
+  '/register/business': typeof RegisterBusinessRoute
+  '/register/investor': typeof RegisterInvestorRoute
+  '/register/mentor': typeof RegisterMentorRoute
+  '/register/startup': typeof RegisterStartupRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/team/$slug': typeof TeamSlugRoute
+  '/investors/': typeof InvestorsIndexRoute
+  '/mentors/': typeof MentorsIndexRoute
+  '/register/': typeof RegisterIndexRoute
+  '/services/': typeof ServicesIndexRoute
+  '/team/': typeof TeamIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/global-presence'
+    | '/global-presence/$slug'
+    | '/investors/$slug'
+    | '/mentors/$slug'
+    | '/register/business'
+    | '/register/investor'
+    | '/register/mentor'
+    | '/register/startup'
+    | '/services/$slug'
+    | '/team/$slug'
+    | '/investors/'
+    | '/mentors/'
+    | '/register/'
+    | '/services/'
+    | '/team/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/global-presence'
+    | '/global-presence/$slug'
+    | '/investors/$slug'
+    | '/mentors/$slug'
+    | '/register/business'
+    | '/register/investor'
+    | '/register/mentor'
+    | '/register/startup'
+    | '/services/$slug'
+    | '/team/$slug'
+    | '/investors'
+    | '/mentors'
+    | '/register'
+    | '/services'
+    | '/team'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/global-presence'
+    | '/global-presence/$slug'
+    | '/investors/$slug'
+    | '/mentors/$slug'
+    | '/register/business'
+    | '/register/investor'
+    | '/register/mentor'
+    | '/register/startup'
+    | '/services/$slug'
+    | '/team/$slug'
+    | '/investors/'
+    | '/mentors/'
+    | '/register/'
+    | '/services/'
+    | '/team/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  GlobalPresenceRoute: typeof GlobalPresenceRouteWithChildren
+  InvestorsSlugRoute: typeof InvestorsSlugRoute
+  MentorsSlugRoute: typeof MentorsSlugRoute
+  RegisterBusinessRoute: typeof RegisterBusinessRoute
+  RegisterInvestorRoute: typeof RegisterInvestorRoute
+  RegisterMentorRoute: typeof RegisterMentorRoute
+  RegisterStartupRoute: typeof RegisterStartupRoute
+  ServicesSlugRoute: typeof ServicesSlugRoute
+  TeamSlugRoute: typeof TeamSlugRoute
+  InvestorsIndexRoute: typeof InvestorsIndexRoute
+  MentorsIndexRoute: typeof MentorsIndexRoute
+  RegisterIndexRoute: typeof RegisterIndexRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
+  TeamIndexRoute: typeof TeamIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +272,158 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/global-presence': {
+      id: '/global-presence'
+      path: '/global-presence'
+      fullPath: '/global-presence'
+      preLoaderRoute: typeof GlobalPresenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/global-presence/$slug': {
+      id: '/global-presence/$slug'
+      path: '/$slug'
+      fullPath: '/global-presence/$slug'
+      preLoaderRoute: typeof GlobalPresenceSlugRouteImport
+      parentRoute: typeof GlobalPresenceRoute
+    }
+    '/investors/': {
+      id: '/investors/'
+      path: '/investors'
+      fullPath: '/investors/'
+      preLoaderRoute: typeof InvestorsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/investors/$slug': {
+      id: '/investors/$slug'
+      path: '/investors/$slug'
+      fullPath: '/investors/$slug'
+      preLoaderRoute: typeof InvestorsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentors/': {
+      id: '/mentors/'
+      path: '/mentors'
+      fullPath: '/mentors/'
+      preLoaderRoute: typeof MentorsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentors/$slug': {
+      id: '/mentors/$slug'
+      path: '/mentors/$slug'
+      fullPath: '/mentors/$slug'
+      preLoaderRoute: typeof MentorsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register/': {
+      id: '/register/'
+      path: '/register'
+      fullPath: '/register/'
+      preLoaderRoute: typeof RegisterIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register/business': {
+      id: '/register/business'
+      path: '/register/business'
+      fullPath: '/register/business'
+      preLoaderRoute: typeof RegisterBusinessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register/investor': {
+      id: '/register/investor'
+      path: '/register/investor'
+      fullPath: '/register/investor'
+      preLoaderRoute: typeof RegisterInvestorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register/mentor': {
+      id: '/register/mentor'
+      path: '/register/mentor'
+      fullPath: '/register/mentor'
+      preLoaderRoute: typeof RegisterMentorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register/startup': {
+      id: '/register/startup'
+      path: '/register/startup'
+      fullPath: '/register/startup'
+      preLoaderRoute: typeof RegisterStartupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/$slug': {
+      id: '/services/$slug'
+      path: '/services/$slug'
+      fullPath: '/services/$slug'
+      preLoaderRoute: typeof ServicesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team/': {
+      id: '/team/'
+      path: '/team'
+      fullPath: '/team/'
+      preLoaderRoute: typeof TeamIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team/$slug': {
+      id: '/team/$slug'
+      path: '/team/$slug'
+      fullPath: '/team/$slug'
+      preLoaderRoute: typeof TeamSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface GlobalPresenceRouteChildren {
+  GlobalPresenceSlugRoute: typeof GlobalPresenceSlugRoute
+}
+
+const GlobalPresenceRouteChildren: GlobalPresenceRouteChildren = {
+  GlobalPresenceSlugRoute: GlobalPresenceSlugRoute,
+}
+
+const GlobalPresenceRouteWithChildren = GlobalPresenceRoute._addFileChildren(
+  GlobalPresenceRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  GlobalPresenceRoute: GlobalPresenceRouteWithChildren,
+  InvestorsSlugRoute: InvestorsSlugRoute,
+  MentorsSlugRoute: MentorsSlugRoute,
+  RegisterBusinessRoute: RegisterBusinessRoute,
+  RegisterInvestorRoute: RegisterInvestorRoute,
+  RegisterMentorRoute: RegisterMentorRoute,
+  RegisterStartupRoute: RegisterStartupRoute,
+  ServicesSlugRoute: ServicesSlugRoute,
+  TeamSlugRoute: TeamSlugRoute,
+  InvestorsIndexRoute: InvestorsIndexRoute,
+  MentorsIndexRoute: MentorsIndexRoute,
+  RegisterIndexRoute: RegisterIndexRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
+  TeamIndexRoute: TeamIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
