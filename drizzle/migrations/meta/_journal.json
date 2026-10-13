@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1791259786234,
+      "tag": "0000_employees_verification",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791903683029,
+      "tag": "0001_employees_verification",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1791903709535,
+      "tag": "0002_drop_auto_admin",
+      "breakpoints": true
+    }
+  ]
+}
