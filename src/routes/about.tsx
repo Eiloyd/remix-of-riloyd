@@ -100,7 +100,7 @@ function AboutPage() {
 
       <section className="border-b border-border bg-surface">
         <div className="mx-auto grid max-w-[1380px] sm:grid-cols-2 lg:grid-cols-4">
-          {advisoryOverview.map(({ icon: Icon, label, copy }) => <article key={label} className="border-b border-border px-5 py-8 sm:border-r sm:px-6 lg:border-b-0 lg:px-7 last:border-r-0"><Icon size={28} strokeWidth={1.7} className="text-primary" /><h2 className="mt-4 text-sm font-extrabold uppercase">{label}</h2><p className="mt-2 text-xs leading-relaxed text-muted-foreground">{copy}</p></article>)}
+          {advisoryOverview.map(({ icon: Icon, label, copy, hash }) => <Link key={label} to="/about" hash={hash} className="group border-b border-border px-5 py-8 transition-colors hover:bg-background sm:border-r sm:px-6 lg:border-b-0 lg:px-7 last:border-r-0"><Icon size={28} strokeWidth={1.7} className="text-primary" /><h2 className="mt-4 flex items-center gap-2 text-sm font-extrabold uppercase">{label}<ArrowRight size={13} className="text-primary opacity-0 transition-opacity group-hover:opacity-100" /></h2><p className="mt-2 text-xs leading-relaxed text-muted-foreground">{copy}</p></Link>)}
         </div>
       </section>
 
@@ -116,7 +116,22 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="border-b border-border bg-card py-14 text-card-foreground sm:py-20">
+      <section className="border-b border-border bg-card text-card-foreground">
+        <div className="mx-auto grid max-w-[1380px] md:grid-cols-2">
+          <article id="vision" className="scroll-mt-6 border-b border-border px-5 py-14 sm:px-6 md:border-b-0 md:border-r lg:px-12 lg:py-20"><Eye size={32} strokeWidth={1.6} className="text-primary" /><p className="eyebrow mt-6 text-[10px] font-bold uppercase">Our vision</p><h2 className="mt-4 text-2xl font-black uppercase leading-[1.02] sm:text-4xl">To be the trusted partner behind <span className="text-primary">better business decisions</span>—everywhere we work.</h2><p className="mt-5 max-w-lg text-sm leading-relaxed text-card-foreground/70">We see a future where every growing business has access to clear insight, sound judgement and the confidence to act on it, regardless of size or market.</p></article>
+          <article id="mission" className="scroll-mt-6 px-5 py-14 sm:px-6 lg:px-12 lg:py-20"><Flag size={32} strokeWidth={1.6} className="text-primary" /><p className="eyebrow mt-6 text-[10px] font-bold uppercase">Our mission</p><h2 className="mt-4 text-2xl font-black uppercase leading-[1.02] sm:text-4xl">Turn complexity into clarity, <span className="text-primary">and clarity into measurable action.</span></h2><ul className="mt-5 grid max-w-lg gap-2 text-sm leading-relaxed text-card-foreground/70">{missionPoints.map((point) => <li key={point} className="flex gap-2"><Check size={16} className="mt-0.5 shrink-0 text-primary" />{point}</li>)}</ul></article>
+        </div>
+      </section>
+
+      <section id="management" className="scroll-mt-6 border-b border-border bg-background py-14 sm:py-20">
+        <div className="mx-auto max-w-[1380px] px-5 sm:px-6 lg:px-12">
+          <div className="grid gap-6 lg:grid-cols-[.8fr_1.2fr] lg:items-end"><div><p className="eyebrow text-[10px] font-bold uppercase text-soft">Our management</p><h2 className="mt-4 text-3xl font-black uppercase leading-[.98] sm:text-5xl">Leadership with <span className="text-primary">clear accountability.</span></h2></div><p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">RILOYD is guided by a leadership structure in which each role owns a defined part of how we serve clients, grow the firm and protect its standards.</p></div>
+          <div className="mt-10 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">{managementRoles.map(({ icon: Icon, title, copy }) => <article key={title} className="bg-background p-6"><Icon size={28} strokeWidth={1.7} className="text-primary" /><h3 className="mt-5 text-sm font-extrabold leading-snug">{title}</h3><p className="mt-3 text-xs leading-relaxed text-muted-foreground">{copy}</p></article>)}<Link to="/team" className="group flex flex-col justify-between bg-surface p-6"><UsersRound size={28} strokeWidth={1.7} className="text-primary" /><span className="mt-5 flex items-center gap-2 text-sm font-extrabold">Meet our team <ArrowRight size={14} className="text-primary transition-transform group-hover:translate-x-1" /></span></Link></div>
+        </div>
+      </section>
+
+
+      <section id="what-we-do" className="scroll-mt-6 border-b border-border bg-card py-14 text-card-foreground sm:py-20">
         <div className="mx-auto max-w-[1380px] px-5 sm:px-6 lg:px-12">
           <div className="grid gap-6 lg:grid-cols-[.8fr_1.2fr] lg:items-end"><div><p className="eyebrow text-[10px] font-bold uppercase">What we do</p><h2 className="mt-4 text-3xl font-black uppercase sm:text-5xl">End-to-end business solutions</h2></div><p className="max-w-2xl text-sm leading-relaxed text-card-foreground/70">Our work connects insight, decisions and implementation. Rather than repeating a fixed list of services, we shape the right combination of expertise around the business question—then create a practical route from diagnosis to action.</p></div>
           <div className="mt-10 grid gap-px bg-secondary sm:grid-cols-2 lg:grid-cols-4">
@@ -125,6 +140,14 @@ function AboutPage() {
           <Button asChild variant="outline" className="mt-8 rounded-full border-primary px-6 text-xs font-bold"><Link to="/services">View Our Services <ArrowRight size={14} /></Link></Button>
         </div>
       </section>
+
+      <section id="how-we-think" className="scroll-mt-6 border-b border-border bg-surface py-14 sm:py-20">
+        <div className="mx-auto max-w-[1380px] px-5 sm:px-6 lg:px-12">
+          <div className="grid gap-6 lg:grid-cols-[.8fr_1.2fr] lg:items-end"><div><p className="eyebrow text-[10px] font-bold uppercase text-soft">How we think</p><h2 className="mt-4 text-3xl font-black uppercase leading-[.98] sm:text-5xl">Context first. <span className="text-primary">Conclusions second.</span></h2></div><p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">Good advice depends on the quality of thinking behind it. These principles guide how we approach every business question.</p></div>
+          <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{thinkingPrinciples.map(({ icon: Icon, title, copy }) => <article key={title} className="border border-border bg-background p-6"><Icon size={28} strokeWidth={1.7} className="text-primary" /><h3 className="mt-5 text-sm font-extrabold leading-snug">{title}</h3><p className="mt-3 text-xs leading-relaxed text-muted-foreground">{copy}</p></article>)}</div>
+        </div>
+      </section>
+
 
       <section className="border-b border-border bg-background py-14 sm:py-20">
         <div className="mx-auto max-w-[1380px] px-5 sm:px-6 lg:px-12">
@@ -137,15 +160,16 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="border-b border-border bg-surface py-14 sm:py-20">
+      <section id="who-we-serve" className="scroll-mt-6 border-b border-border bg-surface py-14 sm:py-20">
         <div className="mx-auto max-w-[1380px] px-5 sm:px-6 lg:px-12">
-          <p className="eyebrow text-[10px] font-bold uppercase text-soft">Who we work with</p>
+          <p className="eyebrow text-[10px] font-bold uppercase text-soft">Who we serve</p>
           <h2 className="mt-4 text-3xl font-black uppercase sm:text-5xl">Built around business realities.</h2>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">We work with the people who carry responsibility for important business outcomes—whether they are building something new, scaling what works or protecting long-term value.</p>
           <div className="mt-9 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">{audiences.map(({ icon: Icon, title, copy }) => <article key={title} className="border border-border bg-background p-5"><Icon size={30} className="text-primary" /><h3 className="mt-5 text-sm font-extrabold leading-snug">{title}</h3><p className="mt-3 text-xs leading-relaxed text-muted-foreground">{copy}</p></article>)}</div>
         </div>
       </section>
 
-      <section className="border-b border-border bg-background py-14 sm:py-20">
+      <section id="our-difference" className="scroll-mt-6 border-b border-border bg-background py-14 sm:py-20">
         <div className="mx-auto max-w-[1380px] px-5 sm:px-6 lg:px-12">
           <div className="grid gap-6 lg:grid-cols-[.75fr_1.25fr] lg:items-end"><div><p className="eyebrow text-[10px] font-bold uppercase text-soft">Why businesses choose Riloyd</p><h2 className="mt-4 text-3xl font-black uppercase leading-[.98] sm:text-5xl">Clarity for the decision. <span className="text-primary">Momentum for what follows.</span></h2></div><p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">Businesses choose RILOYD when the answer cannot come from a template. We bring disciplined analysis, independent thinking and a practical execution perspective to decisions that shape growth, resilience and long-term value.</p></div>
           <div className="mt-10 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-5">{differentiators.map(({ icon: Icon, title, copy }) => <article key={title} className="bg-background p-6"><Icon size={30} strokeWidth={1.7} className="text-primary" /><h3 className="mt-5 text-sm font-extrabold leading-snug">{title}</h3><p className="mt-3 text-xs leading-relaxed text-muted-foreground">{copy}</p></article>)}</div>
