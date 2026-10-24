@@ -77,6 +77,51 @@ export type Database = {
         }
         Relationships: []
       }
+      people_profiles: {
+        Row: {
+          bio: string
+          created_at: string
+          focus: string[]
+          id: string
+          location: string
+          name: string
+          person_group: string
+          photo_url: string | null
+          role: string
+          slug: string
+          sort_order: number
+          summary: string
+        }
+        Insert: {
+          bio?: string
+          created_at?: string
+          focus?: string[]
+          id?: string
+          location?: string
+          name: string
+          person_group: string
+          photo_url?: string | null
+          role?: string
+          slug: string
+          sort_order?: number
+          summary?: string
+        }
+        Update: {
+          bio?: string
+          created_at?: string
+          focus?: string[]
+          id?: string
+          location?: string
+          name?: string
+          person_group?: string
+          photo_url?: string | null
+          role?: string
+          slug?: string
+          sort_order?: number
+          summary?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           id: string
