@@ -1,7 +1,8 @@
 ## In progress
-- [ ] Save four registration types and private documents
-- [ ] Save contact enquiries and show applications/enquiries with review status in Admin Panel
-- [ ] Verify submission, private access and admin review end to end
+- [x] Save four registration types and private documents; verified all four through the website and confirmed saved rows
+- [x] Save contact enquiries and add applications/enquiries with review status and notes in Admin Panel
+- [x] Verify anonymous visitors cannot read submissions or download private documents; remove only test entries/files
+- [ ] Verify signed-in admin review and downloads end to end (blocked: no signed-up admin account exists)
 - [ ] Owner email notifications (requires verified sending domain and recipient)
 - [ ] Add real investor, mentor and team profiles when names, roles and photos are supplied
 
