@@ -14,6 +14,7 @@ export function RegistrationPage({ config }: { config: RegistrationConfig }) {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [sending, setSending] = useState(false);
+  const [applicationCode, setApplicationCode] = useState("");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -38,7 +39,8 @@ export function RegistrationPage({ config }: { config: RegistrationConfig }) {
     }
     setSending(true);
     try {
-      await submit({ data });
+      const result = await submit({ data });
+      setApplicationCode(result.applicationCode);
       form.reset();
       setSuccess(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -49,7 +51,7 @@ export function RegistrationPage({ config }: { config: RegistrationConfig }) {
 
   const Icon = config.icon;
   if (success) return (
-    <main className="min-h-screen bg-background text-foreground"><section className="mx-auto grid min-h-[620px] max-w-3xl place-items-center px-5 py-16 text-center"><div><span className="mx-auto grid h-20 w-20 place-items-center rounded-full border border-primary text-primary"><CheckCircle2 size={42} /></span><p className="section-label mt-8 inline-block">Registration received</p><h1 className="mt-4 text-4xl font-black uppercase sm:text-6xl">Thank you for joining <span className="text-primary">Riloyd.</span></h1><p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-soft">Our team will review your {config.category} registration and contact you using the details provided.</p><Button asChild className="mt-8 h-12 rounded-full px-8"><Link to="/register">Explore other categories <ArrowRight /></Link></Button></div></section></main>
+    <main className="min-h-screen bg-background text-foreground"><section className="mx-auto grid min-h-[620px] max-w-3xl place-items-center px-5 py-16 text-center"><div><span className="mx-auto grid h-20 w-20 place-items-center rounded-full border border-primary text-primary"><CheckCircle2 size={42} /></span><p className="section-label mt-8 inline-block">Registration received</p><h1 className="mt-4 text-4xl font-black uppercase sm:text-6xl">Thank you for joining <span className="text-primary">Riloyd.</span></h1><p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-soft">Our team will review your {config.category} registration and contact you using the details provided.</p><p className="mt-4 break-all text-sm font-bold">Your reference: {applicationCode}</p><Button asChild className="mt-8 h-12 rounded-full px-8"><Link to="/register">Explore other categories <ArrowRight /></Link></Button></div></section></main>
   );
 
   return (
