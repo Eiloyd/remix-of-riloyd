@@ -17,6 +17,7 @@ export const Route = createFileRoute("/global-presence")({
     { property: "og:description", content: "Local insight. Global impact. Explore the markets connecting Riloyd's global outlook." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
+    { name: "robots", content: "noindex" },
   ] }),
   component: GlobalPresence,
 });

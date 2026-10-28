@@ -2,6 +2,7 @@
 - [ ] Add real investor, mentor and team profiles when names, roles and photos are supplied
 
 ## Done
+- [x] Hid Global Presence from header navigation and About promotion; pages now reachable only from footer links and marked noindex
 - [x] Optimized website images with smaller WebP assets, lossless logos, preserved dimensions and verified public-page image loading
 - [x] About page: Vision, Mission, Management (7 roles), Who We Serve, What We Do, How We Think, Our Difference sections
 - [x] Footer About Us column + Our People group under Connect

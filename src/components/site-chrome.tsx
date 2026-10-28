@@ -36,7 +36,6 @@ export function SiteHeader() {
     { label: "Home", to: "/" as const },
     { label: "About", to: "/about" as const },
     { label: "Services", to: "/services" as const },
-    { label: "Global Presence", to: "/global-presence" as const },
     { label: "Contact", to: "/contact" as const },
   ];
 
