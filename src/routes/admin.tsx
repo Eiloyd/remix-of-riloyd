@@ -4,6 +4,8 @@ import { LogOut, Trash2 } from "lucide-react";
 import { z } from "zod";
 import { AuthForm } from "@/components/auth-form";
 import { ProfilesAdmin } from "@/components/profiles-admin";
+import { SubmissionsAdmin } from "@/components/submissions-admin";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import type { Session } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -13,10 +15,10 @@ import { Label } from "@/components/ui/label";
 export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
-      { title: "Admin | Riloyd Employee Records" },
-      { name: "description", content: "Riloyd staff area for managing employee verification records." },
-      { property: "og:title", content: "Admin | Riloyd Employee Records" },
-      { property: "og:description", content: "Riloyd staff area for managing employee verification records." },
+      { title: "Admin | Riloyd Applications, Enquiries & People" },
+      { name: "description", content: "Riloyd staff area for reviewing registrations and enquiries and managing people and employee records." },
+      { property: "og:title", content: "Admin | Riloyd Applications, Enquiries & People" },
+      { property: "og:description", content: "Private Riloyd workspace for application review, enquiries and people management." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "robots", content: "noindex" },
@@ -47,10 +49,10 @@ function AdminPage() {
   return <main className="min-h-[70vh] bg-background px-5 py-14 text-foreground sm:px-6 lg:px-12">
     <div className="mx-auto max-w-[1100px]">
       <p className="eyebrow text-[10px] font-bold uppercase">Staff area</p>
-      <h1 className="mt-4 text-3xl font-black uppercase sm:text-5xl">Employee records</h1>
+      <h1 className="mt-4 text-3xl font-black uppercase sm:text-5xl">Admin Panel</h1>
       {!ready ? null : !session ? <AuthForm redirectPath="/admin" /> : isAdmin === null ? <p className="mt-8 text-sm text-muted-foreground">Checking access…</p> : !isAdmin
         ? <div className="mt-8 max-w-lg border border-border bg-surface p-6"><p className="text-sm">Signed in as <strong>{session.user.email}</strong>. This account doesn't have admin access yet.</p><Button variant="outline" className="mt-4" onClick={() => supabase.auth.signOut()}><LogOut size={14} /> Sign out</Button></div>
-        : <><AdminPanel email={session.user.email ?? ""} /><ProfilesAdmin /></>}
+        : <Tabs defaultValue="applications" className="mt-8"><div className="flex flex-wrap items-center justify-between gap-4"><TabsList className="h-auto flex-wrap justify-start"><TabsTrigger value="applications">Applications</TabsTrigger><TabsTrigger value="enquiries">Enquiries</TabsTrigger><TabsTrigger value="employees">Employees</TabsTrigger><TabsTrigger value="profiles">People profiles</TabsTrigger></TabsList><Button variant="outline" onClick={() => supabase.auth.signOut()}><LogOut size={14} /> Sign out</Button></div><TabsContent value="applications"><SubmissionsAdmin kind="applications" /></TabsContent><TabsContent value="enquiries"><SubmissionsAdmin kind="enquiries" /></TabsContent><TabsContent value="employees"><AdminPanel email={session.user.email ?? ""} /></TabsContent><TabsContent value="profiles"><ProfilesAdmin /></TabsContent></Tabs>}
     </div>
   </main>;
 }

@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
-import { z } from "zod";
+import { useServerFn } from "@tanstack/react-start";
+import { enquirySchema } from "@/lib/submission-schemas";
+import { submitEnquiry as saveEnquiry } from "@/lib/enquiries.functions";
 import {
   ArrowRight,
   BriefcaseBusiness,
@@ -40,15 +42,6 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
-const enquirySchema = z.object({
-  name: z.string().trim().min(2, "Please enter your full name.").max(100),
-  email: z.string().trim().email("Please enter a valid business email.").max(255),
-  phone: z.string().trim().regex(/^[+\d][\d\s()-]{7,19}$/, "Please enter a valid phone number."),
-  service: z.string().min(1, "Please select a service."),
-  industry: z.string().min(1, "Please select an industry."),
-  message: z.string().trim().min(10, "Please share a little more about your requirement.").max(1000),
-});
-
 type FormErrors = Partial<Record<"name" | "email" | "phone" | "service" | "industry" | "message", string>>;
 
 const fieldClass = "min-h-12 w-full rounded-md border border-border bg-surface px-4 text-sm text-foreground outline-none transition focus:border-primary focus:ring-1 focus:ring-primary";
@@ -79,10 +72,15 @@ const faqs = [
 
 function ContactPage() {
   const [errors, setErrors] = useState<FormErrors>({});
+  const save = useServerFn(saveEnquiry);
+  const [sending, setSending] = useState(false);
+  const [message, setMessage] = useState("");
 
-  function submitEnquiry(event: FormEvent<HTMLFormElement>) {
+  async function submitEnquiry(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
+    const element = event.currentTarget;
+    const form = new FormData(element);
+    setMessage("");
     const values = {
       name: String(form.get("name") ?? ""),
       email: String(form.get("email") ?? ""),
@@ -102,11 +100,14 @@ function ContactPage() {
       return;
     }
     setErrors({});
-    const subject = encodeURIComponent(`Business enquiry from ${result.data.name}`);
-    const body = encodeURIComponent(
-      `Name: ${result.data.name}\nEmail: ${result.data.email}\nPhone: ${result.data.phone}\nService: ${result.data.service}\nIndustry: ${result.data.industry}\n\nMessage:\n${result.data.message}`,
-    );
-    window.location.href = `mailto:hello@riloyd.com?subject=${subject}&body=${body}`;
+    setSending(true);
+    try {
+      await save({ data: result.data });
+      element.reset();
+      setMessage("Your enquiry has been received.");
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "Your enquiry could not be saved. Please try again.");
+    } finally { setSending(false); }
   }
 
   return (
@@ -138,7 +139,8 @@ function ContactPage() {
                 <FieldError message={errors.industry}><select className={fieldClass} name="industry" defaultValue=""><option value="" disabled>Select Industry *</option><option>Startup / MSME</option><option>Manufacturing</option><option>Retail & Consumer</option><option>Technology</option><option>Professional Services</option><option>Other</option></select></FieldError>
               </div>
               <FieldError message={errors.message}><textarea className={`${fieldClass} min-h-32 resize-y py-3`} name="message" placeholder="Your Message *" maxLength={1000} aria-invalid={Boolean(errors.message)} /></FieldError>
-              <Button type="submit" size="lg" className="mt-2 h-12 rounded-full px-8 font-bold">Send Message <ArrowRight /></Button>
+              {message && <p role="status" className="text-sm text-primary">{message}</p>}
+              <Button type="submit" disabled={sending} size="lg" className="mt-2 h-12 rounded-full px-8 font-bold">{sending ? "Sending…" : "Send Message"} <ArrowRight /></Button>
               <p className="flex items-center gap-2 pt-2 text-[10px] text-muted-foreground"><LockKeyhole size={13} /> Your information is used only to respond to your enquiry.</p>
             </form>
           </div>

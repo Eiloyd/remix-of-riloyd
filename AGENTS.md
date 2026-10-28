@@ -10,6 +10,8 @@
 <!-- LOVABLE:END -->
 
 - This remix starts with an empty Drizzle migration history; create future database changes through the migration tool rather than restoring the source project's copied migrations, so the new database has its own history.
+- Website registrations and enquiries use validated server functions and a durable submission limiter; admin inbox reads/reviews use authenticated RLS-scoped functions, and registration documents stay in private Storage with admin-authorized download by application ID, so visitors cannot access other people's submissions.
+- Preserve the summit popup's Zoho embed as its existing submission destination; do not imply those external submissions are in the local admin inbox without a verified synchronization integration.
 
 - Keep each detailed service layout in `src/components/services/` and select it by slug in `src/routes/services.$slug.tsx`, so service URLs retain one shared metadata and navigation route.
 - Keep the Global Presence experience in its own `/global-presence` route, but reach it only from the footer while it is unpublished: no header navigation item and no promoted links elsewhere, and `noindex` on both routes, so the pages stay out of sight until the user re-enables them.
