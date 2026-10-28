@@ -1,0 +1,52 @@
+import drizzleSource from '../../drizzle/schema.ts?raw';
+import inboxSource from '../../drizzle/migrations/0000_registration_and_enquiry_inbox.sql?raw';
+import reportsSource from '../../drizzle/migrations/0002_customer_report_downloads.sql?raw';
+
+export type Column = { name: string; type: string; nullable: boolean };
+export type Table = { name: string; columns: Column[]; rls: boolean };
+export type Metadata = { tables: Table[]; functions: string[] };
+export type Finding = { severity: 'error' | 'warning'; object: string; expected: string; actual: string };
+const aliases: Record<string, string> = { timestamptz: 'timestamp with time zone', int: 'integer', int4: 'integer', int8: 'bigint', bool: 'boolean' };
+export const normalizeType = (type: string) => aliases[type.toLowerCase()] ?? type.toLowerCase();
+export function parseSqlTables(source: string): Table[] {
+  // Copied declarations remain useful expectations even when their replay was disabled.
+  const sql = source.replace(/^-- /gm, '');
+  return Array.from(sql.matchAll(/CREATE TABLE public\.(\w+)\s*\(([\s\S]*?)\n\);/g), match => ({
+    name: match[1], rls: true,
+    columns: match[2].split('\n').flatMap(line => {
+      const column = line.trim().match(/^(\w+)\s+(uuid|text|jsonb|timestamptz|integer|boolean|date|bigint)\b(.*)/i);
+      return column ? [{ name: column[1], type: normalizeType(column[2]), nullable: !/NOT NULL|PRIMARY KEY/i.test(column[3]) }] : [];
+    }),
+  }));
+}
+const baseline = (name: string, fields: string): Table => ({ name, rls: true, columns: fields.split(' ').map(field => {
+  const [column, type] = field.split(':');
+  return { name: column, type: normalizeType(type.replace('?', '')), nullable: type.endsWith('?') };
+}) });
+export const expectedTables: Table[] = [
+  ...parseSqlTables(inboxSource), ...parseSqlTables(reportsSource),
+  baseline('employees', 'id:uuid employee_id:text code_hash:text full_name:text photo_url:text? designation:text department:text status:text valid_until:date? created_at:timestamptz updated_at:timestamptz'),
+  baseline('employee_verification_attempts', 'id:bigint employee_id:text success:boolean created_at:timestamptz'),
+  baseline('people_profiles', 'id:uuid person_group:text slug:text name:text role:text location:text focus:text[] summary:text bio:text photo_url:text? sort_order:integer created_at:timestamptz'),
+  baseline('user_roles', 'id:uuid user_id:uuid role:app_role'),
+];
+export const expectedFunctions = ['has_role', 'admin_save_employee', 'verify_employee', 'consume_form_submission_limit'];
+export const drizzleSchemaEmpty = !/\b(?:pgTable|pgSchema)\s*\(/.test(drizzleSource);
+export function compareSchema(expected: Table[], actual: Table[]): Finding[] {
+  const findings: Finding[] = [];
+  for (const table of expected) {
+    const live = actual.find(t => t.name === table.name);
+    if (!live) { findings.push({ severity: 'error', object: table.name, expected: 'Table present', actual: 'Missing table' }); continue; }
+    if (!live.rls) findings.push({ severity: 'error', object: table.name, expected: 'Row security enabled', actual: 'Disabled' });
+    for (const column of table.columns) {
+      const found = live.columns.find(c => c.name === column.name);
+      const object = `${table.name}.${column.name}`;
+      if (!found) { findings.push({ severity: 'error', object, expected: column.type, actual: 'Missing column' }); continue; }
+      if (normalizeType(found.type) !== normalizeType(column.type)) findings.push({ severity: 'error', object, expected: column.type, actual: found.type });
+      if (found.nullable !== column.nullable) findings.push({ severity: 'error', object, expected: column.nullable ? 'Nullable' : 'Not nullable', actual: found.nullable ? 'Nullable' : 'Not nullable' });
+    }
+    for (const column of live.columns) if (!table.columns.some(c => c.name === column.name)) findings.push({ severity: 'warning', object: `${table.name}.${column.name}`, expected: 'Not declared', actual: 'Additional column' });
+  }
+  for (const table of actual) if (!expected.some(t => t.name === table.name)) findings.push({ severity: 'warning', object: table.name, expected: 'Not declared', actual: 'Additional table' });
+  return findings;
+}
