@@ -7,13 +7,14 @@ const kindSchema = z.enum(["applications", "enquiries"]);
 
 export const listInbox = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: unknown) => z.object({ kind: kindSchema, status: z.enum(["all", ...reviewStatuses]), page: z.number().int().min(0) }).parse(data))
+  .inputValidator((data: unknown) => z.object({ kind: kindSchema, status: z.enum(["all", ...reviewStatuses]), category: z.enum(["all", "startup", "mentor", "investor", "business"]).default("all"), page: z.number().int().min(0) }).parse(data))
   .handler(async ({ data, context }) => {
     const { data: admin, error: roleError } = await context.supabase.rpc("has_role", { _user_id: context.userId, _role: "admin" });
     if (roleError || !admin) throw new Error("Admin access required.");
     const table = data.kind === "applications" ? "registration_applications" : "contact_submissions";
     let query = context.supabase.from(table).select("*", { count: "exact" }).order("created_at", { ascending: false }).range(data.page * 25, data.page * 25 + 24);
     if (data.status !== "all") query = query.eq("status", data.status);
+    if (data.kind === "applications" && data.category !== "all") query = query.eq("category", data.category);
     const { data: rows, count, error } = await query;
     if (error) throw new Error("The inbox could not be loaded.");
     return { rows: rows ?? [], count: count ?? 0 };
