@@ -112,14 +112,14 @@ const differentiators = [
 const markets = ["India", "Singapore", "UAE", "UK", "USA", "Canada", "Australia", "Europe"];
 
 function ImageBrand() {
-  return <img decoding="async" src={logoAsset} alt="Riloyd" className="absolute right-5 top-5 z-20 h-9 w-auto object-contain sm:right-8 sm:top-8 sm:h-11" decoding="async" />;
+  return <img src={logoAsset} alt="Riloyd" className="absolute right-5 top-5 z-20 h-9 w-auto object-contain sm:right-8 sm:top-8 sm:h-11" decoding="async" />;
 }
 
 function AboutPage() {
   return (
     <main className="overflow-hidden bg-background text-foreground">
       <section className="relative min-h-[590px] overflow-hidden border-b border-border sm:min-h-[650px]">
-        <img decoding="async" src={heroImage} width={1920} height={900} alt="Earth connected by international business routes" className="absolute inset-0 h-full w-full object-cover object-[64%_center]" decoding="async" fetchPriority="high" />
+        <img src={heroImage} width={1920} height={900} alt="Earth connected by international business routes" className="absolute inset-0 h-full w-full object-cover object-[64%_center]" decoding="async" fetchPriority="high" />
         <div className="about-hero-shade absolute inset-0" />
         <ImageBrand />
         <div className="relative z-10 mx-auto flex min-h-[590px] max-w-[1380px] items-center px-5 py-20 sm:min-h-[650px] sm:px-6 lg:px-12">
@@ -147,7 +147,7 @@ function AboutPage() {
             <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground">We look beyond an isolated problem to understand the business around it—its ambitions, economics, market realities and ability to execute. That wider view helps us provide advice that is commercially grounded, connected and useful.</p>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">Our role is to help leadership teams ask sharper questions, evaluate choices with confidence and turn the right decisions into forward movement.</p>
           </div>
-          <div className="relative min-h-[410px] lg:min-h-[560px]"><img decoding="async" src={leadershipImage} width={1600} height={900} loading="lazy" alt="Business leader considering a city growth strategy" className="absolute inset-0 h-full w-full object-cover object-center" decoding="async" /><div className="about-image-shade absolute inset-0" /><ImageBrand /></div>
+          <div className="relative min-h-[410px] lg:min-h-[560px]"><img src={leadershipImage} width={1600} height={900} loading="lazy" alt="Business leader considering a city growth strategy" className="absolute inset-0 h-full w-full object-cover object-center" decoding="async" /><div className="about-image-shade absolute inset-0" /><ImageBrand /></div>
         </div>
       </section>
 
@@ -212,7 +212,7 @@ function AboutPage() {
       </section>
 
       <section className="relative min-h-[560px] overflow-hidden border-b border-border">
-        <img decoding="async" src={mapImage} width={1600} height={656} loading="lazy" alt="World map with subtle connections between Riloyd markets" className="absolute inset-0 h-full w-full object-cover object-center" decoding="async" />
+        <img src={mapImage} width={1600} height={656} loading="lazy" alt="World map with subtle connections between Riloyd markets" className="absolute inset-0 h-full w-full object-cover object-center" decoding="async" />
         <div className="about-global-shade absolute inset-0" />
         <ImageBrand />
         <div className="relative z-10 mx-auto flex min-h-[560px] max-w-[1380px] items-center px-5 py-16 sm:px-6 lg:px-12">
@@ -221,14 +221,14 @@ function AboutPage() {
       </section>
 
       <section className="relative min-h-[540px] overflow-hidden border-b border-border">
-        <img decoding="async" src={visionImage} width={1600} height={700} loading="lazy" alt="Leader looking beyond a mountain horizon" className="absolute inset-0 h-full w-full object-cover object-[67%_center]" decoding="async" />
+        <img src={visionImage} width={1600} height={700} loading="lazy" alt="Leader looking beyond a mountain horizon" className="absolute inset-0 h-full w-full object-cover object-[67%_center]" decoding="async" />
         <div className="about-vision-shade absolute inset-0" />
         <ImageBrand />
         <div className="relative z-10 mx-auto flex min-h-[540px] max-w-[1380px] items-center px-5 py-16 sm:px-6 lg:px-12"><div className="max-w-2xl"><p className="eyebrow text-[10px] font-bold uppercase text-soft">Our philosophy</p><h2 className="mt-5 text-4xl font-black uppercase leading-[.94] sm:text-6xl">Think beyond today.<br /><span className="text-primary">Build for tomorrow.</span></h2><p className="mt-6 max-w-xl text-sm leading-relaxed text-soft sm:text-base">Businesses evolve. Markets change. Opportunities emerge. Risks shift. RILOYD exists to help businesses understand these changes, make informed decisions and build what comes next.</p></div></div>
       </section>
 
       <section className="relative min-h-[340px] overflow-hidden">
-        <img decoding="async" src={heroImage} width={1920} height={900} loading="lazy" alt="Connected global business landscape" className="absolute inset-0 h-full w-full object-cover object-[66%_center]" decoding="async" />
+        <img src={heroImage} width={1920} height={900} loading="lazy" alt="Connected global business landscape" className="absolute inset-0 h-full w-full object-cover object-[66%_center]" decoding="async" />
         <div className="about-hero-shade absolute inset-0" />
         <ImageBrand />
         <div className="relative z-10 mx-auto flex min-h-[340px] max-w-[1380px] items-center px-5 py-14 sm:px-6 lg:px-12"><div className="max-w-2xl"><p className="eyebrow text-[10px] font-bold uppercase text-soft">The next decision</p><h2 className="mt-4 text-4xl font-black uppercase leading-[.95] sm:text-5xl">Move forward with <span className="text-primary">clarity.</span></h2><p className="mt-4 max-w-lg text-sm text-soft">Talk to RILOYD about the business decision in front of you.</p><Button asChild size="lg" className="mt-6 rounded-full px-7 font-bold"><Link to="/contact">Start a Conversation <ArrowRight size={16} /></Link></Button></div></div>

@@ -24,7 +24,7 @@ function useSession() {
 function Avatar({ p, big }: { p: PersonProfile; big?: boolean }) {
   const cls = big ? "aspect-square w-full max-w-[220px] rounded-md text-6xl" : "h-14 w-14 shrink-0 rounded-full text-lg";
   return p.photo_url
-    ? <img decoding="async" src={p.photo_url} alt={p.name} loading="lazy" decoding="async" className={`${cls} object-cover`} />
+    ? <img src={p.photo_url} alt={p.name} loading="lazy" decoding="async" className={`${cls} object-cover`} />
     : <span className={`${cls} flex items-center justify-center bg-primary font-black text-primary-foreground`}>{initials(p.name)}</span>;
 }
 
