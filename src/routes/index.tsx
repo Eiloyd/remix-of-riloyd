@@ -21,9 +21,9 @@ import {
   Building2,
   Youtube,
 } from "lucide-react";
-import heroAsset from "@/assets/riloyd-mountain.png.optimized.webp.asset.json";
-import officeAsset from "@/assets/riloyd-office.png.optimized.webp.asset.json";
-import contactOfficeAsset from "@/assets/riloyd-contact-office.png.optimized.webp.asset.json";
+import heroAsset from "@/assets/local/riloyd-mountain.png.optimized.webp";
+import officeAsset from "@/assets/local/riloyd-office.png.optimized.webp";
+import contactOfficeAsset from "@/assets/local/riloyd-contact-office.png.optimized.webp";
 import { ServiceAdvisor } from "@/components/service-advisor";
 import { FundingPopup } from "@/components/funding-popup";
 
@@ -106,7 +106,7 @@ function Index() {
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
       <section id="home" className="hero-shell relative min-h-[560px] border-b border-border sm:min-h-[640px] lg:min-h-[660px]">
         <img
-          src={heroAsset.url}
+          src={heroAsset}
           alt="Two mountaineers helping each other reach a summit"
           className="absolute inset-0 h-full w-full object-cover object-[63%_38%] lg:object-[75%_38%]" decoding="async" fetchPriority="high" />
         <div className="hero-shade absolute inset-0" />
@@ -164,7 +164,7 @@ function Index() {
       <section id="about" className="border-b border-border bg-background">
         <div className="mx-auto grid max-w-[1380px] lg:grid-cols-[2.15fr_1fr]">
           <div className="why-panel relative min-h-[350px] overflow-hidden px-5 py-10 sm:px-6 lg:min-h-[380px] lg:px-12 lg:py-11">
-            <img src={officeAsset.url} alt="Riloyd corporate office at sunset" className="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+            <img src={officeAsset} alt="Riloyd corporate office at sunset" className="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
             <div className="why-shade absolute inset-0" />
             <div className="relative z-10 max-w-xl">
               <p className="eyebrow text-[10px] font-bold uppercase">Why Riloyd</p>
@@ -187,7 +187,7 @@ function Index() {
       <ServiceAdvisor />
 
       <section id="contact" className="contact-band relative min-h-[8cm] overflow-hidden border-b border-border sm:h-[8cm]">
-        <img src={contactOfficeAsset.url} alt="Riloyd reception office overlooking a city at sunset" className="contact-background absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+        <img src={contactOfficeAsset} alt="Riloyd reception office overlooking a city at sunset" className="contact-background absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
         <div className="contact-shade absolute inset-0" />
         <div className="relative mx-auto flex h-full max-w-[1380px] flex-col justify-center px-5 py-6 sm:px-6 lg:px-12">
           <div className="max-w-4xl">

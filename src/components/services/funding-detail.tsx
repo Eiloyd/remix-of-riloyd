@@ -4,17 +4,17 @@ import {
   ArrowRight, BarChart3, Building2, Calculator, ChevronRight, Coins, FileText, Handshake,
   Landmark, Minus, Plus, RefreshCw, Search, Sprout, Users, Wallet,
 } from "lucide-react";
-import heroAsset from "@/assets/funding-hero.png.optimized.webp.asset.json";
-import equityAsset from "@/assets/funding-equity.png.optimized.webp.asset.json";
-import debtAsset from "@/assets/funding-debt.png.optimized.webp.asset.json";
-import grantsAsset from "@/assets/funding-grants.png.optimized.webp.asset.json";
-import investorsAsset from "@/assets/funding-investors.png.optimized.webp.asset.json";
+import heroAsset from "@/assets/local/funding-hero.png.optimized.webp";
+import equityAsset from "@/assets/local/funding-equity.png.optimized.webp";
+import debtAsset from "@/assets/local/funding-debt.png.optimized.webp";
+import grantsAsset from "@/assets/local/funding-grants.png.optimized.webp";
+import investorsAsset from "@/assets/local/funding-investors.png.optimized.webp";
 
 const fundingTypes = [
-  [equityAsset.url, Coins, "Equity Funding", ["Investor connections", "Pitch support", "Valuation guidance"]],
-  [debtAsset.url, Landmark, "Debt Funding", ["Bank loans", "Working capital", "Term loans"]],
-  [grantsAsset.url, BarChart3, "Government Grants", ["MSME schemes", "Subsidies & incentives", "Policy support"]],
-  [investorsAsset.url, Handshake, "Strategic Investors", ["Industry investors", "Growth partners", "Long-term collaboration"]],
+  [equityAsset, Coins, "Equity Funding", ["Investor connections", "Pitch support", "Valuation guidance"]],
+  [debtAsset, Landmark, "Debt Funding", ["Bank loans", "Working capital", "Term loans"]],
+  [grantsAsset, BarChart3, "Government Grants", ["MSME schemes", "Subsidies & incentives", "Policy support"]],
+  [investorsAsset, Handshake, "Strategic Investors", ["Industry investors", "Growth partners", "Long-term collaboration"]],
 ] as const;
 
 const steps = [
@@ -75,7 +75,7 @@ export function FundingDetail() {
   return (
     <>
       <section className="relative overflow-hidden border-b border-border">
-        <img src={heroAsset.url} alt="Riloyd office desk with growth charts and city skyline at sunset" className="absolute inset-0 h-full w-full object-cover" decoding="async" fetchPriority="high" />
+        <img src={heroAsset} alt="Riloyd office desk with growth charts and city skyline at sunset" className="absolute inset-0 h-full w-full object-cover" decoding="async" fetchPriority="high" />
         <div className="hero-shade absolute inset-0" />
         <div className="relative z-10 mx-auto max-w-[1380px] px-5 py-16 sm:px-6 lg:px-12 lg:py-24">
           <nav className="flex items-center gap-2 text-xs text-soft">

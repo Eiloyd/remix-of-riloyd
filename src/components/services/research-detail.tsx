@@ -4,8 +4,8 @@ import {
   ArrowRight, BarChart3, ChevronRight, ClipboardList, FileText, Heart, Lightbulb, LineChart,
   Presentation, Rocket, Search, Settings, ShieldCheck, Target, TrendingUp, Users, Zap, Plus, Minus,
 } from "lucide-react";
-import heroAsset from "@/assets/research-hero.png.optimized.webp.asset.json";
-import overviewAsset from "@/assets/research-overview.png.optimized.webp.asset.json";
+import heroAsset from "@/assets/local/research-hero.png.optimized.webp";
+import overviewAsset from "@/assets/local/research-overview.png.optimized.webp";
 
 const stats = [
   [Search, "500+", "Research Projects Completed"],
@@ -72,7 +72,7 @@ export function ResearchDetail() {
   return (
     <>
       <section className="relative overflow-hidden border-b border-border">
-        <img src={heroAsset.url} alt="Riloyd strategy boardroom with market intelligence dashboard" className="absolute inset-0 h-full w-full object-cover" decoding="async" fetchPriority="high" />
+        <img src={heroAsset} alt="Riloyd strategy boardroom with market intelligence dashboard" className="absolute inset-0 h-full w-full object-cover" decoding="async" fetchPriority="high" />
         <div className="hero-shade absolute inset-0" />
         <div className="relative z-10 mx-auto max-w-[1380px] px-5 py-16 sm:px-6 lg:px-12 lg:py-24">
           <nav className="flex items-center gap-2 text-xs text-soft">
@@ -126,7 +126,7 @@ export function ResearchDetail() {
               Discuss Your Requirements <ArrowRight size={16} />
             </Link>
           </div>
-          <img src={overviewAsset.url} alt="Riloyd boardroom with city skyline at sunset" className="aspect-[16/10] w-full rounded-md object-cover object-[65%_center]" loading="lazy" decoding="async" />
+          <img src={overviewAsset} alt="Riloyd boardroom with city skyline at sunset" className="aspect-[16/10] w-full rounded-md object-cover object-[65%_center]" loading="lazy" decoding="async" />
           <ul className="grid gap-4">
             {benefits.map(([icon, label]) => (
               <li key={label} className="flex items-center gap-4 text-sm font-semibold">

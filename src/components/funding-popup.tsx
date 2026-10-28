@@ -2,7 +2,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { CheckCircle2, Rocket, X } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
-import posterAsset from "@/assets/funding-programme-poster.webp.asset.json";
+import posterAsset from "@/assets/local/funding-programme-poster.webp";
 import {
   fundingApplicationSchema,
   submitFundingApplication,
@@ -82,7 +82,7 @@ export function FundingPopup() {
           <div className="grid md:grid-cols-[1fr_1.05fr]">
             <div className="bg-background">
               <img
-                src={posterAsset.url}
+                src={posterAsset}
                 alt="Riloyd Startup Funding Programme – Grant up to ₹22.5 Lakhs for the top 3 startups: 1st ₹10 Lakhs, 2nd ₹7.5 Lakhs, 3rd ₹5 Lakhs"
                 width={1086}
                 height={1448}

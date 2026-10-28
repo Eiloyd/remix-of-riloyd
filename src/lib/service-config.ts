@@ -15,13 +15,13 @@ export type ServiceConfig = {
   highlights: [string, string][];
 };
 
-import researchAsset from "@/assets/research-hero.png.optimized.webp.asset.json";
-import fundingAsset from "@/assets/funding-hero.png.optimized.webp.asset.json";
-import growthImageAsset from "@/assets/growth-hero.jpg.optimized.webp.asset.json";
-const growthImage = growthImageAsset.url;
-import transformationAsset from "@/assets/transformation-hero.png.optimized.webp.asset.json";
-import manpowerAsset from "@/assets/manpower-hero.png.optimized.webp.asset.json";
-import incubationAsset from "@/assets/riloyd-sunset-corporate-lobby.png.optimized.webp.asset.json";
+import researchAsset from "@/assets/local/research-hero.png.optimized.webp";
+import fundingAsset from "@/assets/local/funding-hero.png.optimized.webp";
+import growthImageAsset from "@/assets/local/growth-hero.jpg.optimized.webp";
+const growthImage = growthImageAsset;
+import transformationAsset from "@/assets/local/transformation-hero.png.optimized.webp";
+import manpowerAsset from "@/assets/local/manpower-hero.png.optimized.webp";
+import incubationAsset from "@/assets/local/riloyd-sunset-corporate-lobby.png.optimized.webp";
 
 export const serviceConfigs: Record<string, ServiceConfig> = {
   research: {
@@ -31,7 +31,7 @@ export const serviceConfigs: Record<string, ServiceConfig> = {
     tagline: "See the opportunity. Choose the right direction.",
     eyebrow: "Business research, analysis & strategy",
     description: "Turn complex market signals into clear priorities, confident decisions and a practical plan for growth.",
-    image: researchAsset.url,
+    image: researchAsset,
     imageAlt: "Riloyd strategy boardroom with a market intelligence dashboard",
     intro: "We combine market intelligence, commercial analysis and strategic thinking to help leaders understand where they stand and what to do next.",
     outcomes: ["A sharper view of your market and competitors", "Priorities aligned to your goals, resources and timing", "A practical roadmap your team can execute", "Decision support backed by evidence, not assumptions"],
@@ -45,7 +45,7 @@ export const serviceConfigs: Record<string, ServiceConfig> = {
     tagline: "Connect with capital for your next phase.",
     eyebrow: "Business funding",
     description: "Prepare your business for the right capital and connect your growth story with relevant funding opportunities.",
-    image: fundingAsset.url,
+    image: fundingAsset,
     imageAlt: "Riloyd office desk with growth charts and city skyline at sunset",
     intro: "The right funding is more than a transaction. We help you build a credible case, understand your options and move through the process with clarity.",
     outcomes: ["Funding-readiness assessment and gap analysis", "Investor-ready business and financial narrative", "Support across debt, equity and strategic capital options", "A clear process for conversations, diligence and follow-through"],
@@ -73,7 +73,7 @@ export const serviceConfigs: Record<string, ServiceConfig> = {
     tagline: "People, process and technology for tomorrow.",
     eyebrow: "Business transformation",
     description: "Make change useful, measurable and owned by the people who will carry it forward.",
-    image: transformationAsset.url,
+    image: transformationAsset,
     imageAlt: "Chess pieces on a boardroom table overlooking a city at sunset",
     intro: "Transformation is not a presentation or a software rollout. It is a coordinated shift in how your people work, how decisions move and how value reaches customers.",
     outcomes: ["A practical transformation agenda tied to business goals", "Simpler processes and stronger accountability", "Technology choices grounded in adoption and return", "Teams equipped to sustain improvement after launch"],
@@ -87,7 +87,7 @@ export const serviceConfigs: Record<string, ServiceConfig> = {
     tagline: "Get your staff at our payroll.",
     eyebrow: "Manpower service",
     description: "Build a dependable workforce while Riloyd supports payroll, coordination and the operational details behind it.",
-    image: manpowerAsset.url,
+    image: manpowerAsset,
     imageAlt: "Riloyd boardroom overlooking a city skyline at sunset",
     intro: "When your team needs to grow quickly, the employment and payroll layer should not slow the business down. We help you deploy capable people with a clear operating structure.",
     outcomes: ["Flexible staffing aligned to your operating needs", "Payroll coordination and workforce administration", "Clear roles, onboarding and performance expectations", "A dependable partner as your team evolves"],
@@ -101,7 +101,7 @@ export const serviceConfigs: Record<string, ServiceConfig> = {
     tagline: "A complete startup ecosystem.",
     eyebrow: "Startup & business incubation centers",
     description: "A place for founders and growing businesses to work, connect, build and move forward with the right support around them.",
-    image: incubationAsset.url,
+    image: incubationAsset,
     imageAlt: "Riloyd startup and business incubation center lobby",
     intro: "A connected space for founders and businesses to grow.",
     outcomes: [],

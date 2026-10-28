@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check, Network, SearchCheck, Sparkles, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { categoryOrder, registrationConfigs } from "@/lib/registration-config";
-import teamAsset from "@/assets/riloyd-team.png.optimized.webp.asset.json";
+import teamAsset from "@/assets/local/riloyd-team.png.optimized.webp";
 
 export const Route = createFileRoute("/register/")({
   head: () => ({ meta: [
@@ -21,7 +21,7 @@ const steps = [
 
 function RegisterHub() {
   return <main className="min-h-screen overflow-hidden bg-background text-foreground">
-    <section className="registration-hero relative overflow-hidden border-b border-border"><img src={teamAsset.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" fetchPriority="high" decoding="async" /><div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" /><div className="registration-grid absolute inset-0 opacity-50" /><div className="relative mx-auto grid min-h-[470px] max-w-[1380px] items-center gap-8 px-5 py-14 sm:px-6 lg:grid-cols-[1fr_.46fr] lg:px-12"><div><p className="eyebrow text-[10px] font-bold uppercase">Join the Riloyd ecosystem</p><h1 className="mt-6 text-[clamp(3.2rem,8vw,7.3rem)] font-black uppercase leading-[.84]">Register<br /><span className="text-primary">with us.</span></h1><p className="mt-6 max-w-xl text-sm leading-relaxed text-soft sm:text-base">Whether you are building, guiding, investing or growing — Riloyd connects you with the right opportunities, expertise and people.</p></div><div className="hidden border-l border-border pl-10 lg:block"><p className="text-sm font-black uppercase leading-[1.7]">Ideas<br />Funding<br />Partnership<br /><span className="text-primary">Progress</span></p></div></div></section>
+    <section className="registration-hero relative overflow-hidden border-b border-border"><img src={teamAsset} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" fetchPriority="high" decoding="async" /><div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" /><div className="registration-grid absolute inset-0 opacity-50" /><div className="relative mx-auto grid min-h-[470px] max-w-[1380px] items-center gap-8 px-5 py-14 sm:px-6 lg:grid-cols-[1fr_.46fr] lg:px-12"><div><p className="eyebrow text-[10px] font-bold uppercase">Join the Riloyd ecosystem</p><h1 className="mt-6 text-[clamp(3.2rem,8vw,7.3rem)] font-black uppercase leading-[.84]">Register<br /><span className="text-primary">with us.</span></h1><p className="mt-6 max-w-xl text-sm leading-relaxed text-soft sm:text-base">Whether you are building, guiding, investing or growing — Riloyd connects you with the right opportunities, expertise and people.</p></div><div className="hidden border-l border-border pl-10 lg:block"><p className="text-sm font-black uppercase leading-[1.7]">Ideas<br />Funding<br />Partnership<br /><span className="text-primary">Progress</span></p></div></div></section>
 
     <section className="mx-auto max-w-[1380px] px-5 py-14 sm:px-6 lg:px-12 lg:py-20">
       <div className="max-w-2xl"><p className="section-label">Choose your path</p><h2 className="mt-5 text-3xl font-black uppercase sm:text-5xl">Who are you?</h2><p className="mt-4 text-sm text-soft">Select a category to open its dedicated registration form.</p></div>
