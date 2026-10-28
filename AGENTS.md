@@ -14,6 +14,7 @@
 - Preserve the summit popup's Zoho embed as its existing submission destination; do not imply those external submissions are in the local admin inbox without a verified synchronization integration.
 - Generate submission PDFs and Excel workbooks lazily in the browser from authenticated inbox data; prepare blobs before download clicks and export both inboxes across all pages, so private details remain admin-only and mobile downloads retain user activation.
 - Customer reports use a private bucket and admin-only metadata policies; a rate-limited public server function verifies both report number and publish date before issuing a short-lived download URL, so the footer Downloads page never lists private reports.
+- Setup diagnostics use an admin-authorized STABLE SECURITY INVOKER catalog RPC and metadata-only storage reads; compare retained SQL declarations plus an explicit legacy application baseline while Drizzle's managed placeholder is empty, and report incomplete coverage rather than claiming schema parity.
 
 - Keep each detailed service layout in `src/components/services/` and select it by slug in `src/routes/services.$slug.tsx`, so service URLs retain one shared metadata and navigation route.
 - Keep the Global Presence experience in its own `/global-presence` route, but reach it only from the footer while it is unpublished: no header navigation item and no promoted links elsewhere, and `noindex` on both routes, so the pages stay out of sight until the user re-enables them.
