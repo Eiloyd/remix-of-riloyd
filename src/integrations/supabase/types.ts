@@ -14,6 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
+      contact_submissions: {
+        Row: {
+          admin_notes: string
+          created_at: string
+          email: string
+          id: string
+          industry: string
+          message: string
+          name: string
+          phone: string
+          service: string
+          status: string
+        }
+        Insert: {
+          admin_notes?: string
+          created_at?: string
+          email: string
+          id?: string
+          industry: string
+          message: string
+          name: string
+          phone: string
+          service: string
+          status?: string
+        }
+        Update: {
+          admin_notes?: string
+          created_at?: string
+          email?: string
+          id?: string
+          industry?: string
+          message?: string
+          name?: string
+          phone?: string
+          service?: string
+          status?: string
+        }
+        Relationships: []
+      }
       employee_verification_attempts: {
         Row: {
           created_at: string
@@ -77,6 +116,24 @@ export type Database = {
         }
         Relationships: []
       }
+      form_submission_limits: {
+        Row: {
+          attempts: number
+          key_hash: string
+          window_started_at: string
+        }
+        Insert: {
+          attempts?: number
+          key_hash: string
+          window_started_at?: string
+        }
+        Update: {
+          attempts?: number
+          key_hash?: string
+          window_started_at?: string
+        }
+        Relationships: []
+      }
       people_profiles: {
         Row: {
           bio: string
@@ -122,6 +179,51 @@ export type Database = {
         }
         Relationships: []
       }
+      registration_applications: {
+        Row: {
+          admin_notes: string
+          application_code: string
+          category: string
+          created_at: string
+          details: Json
+          document_name: string | null
+          document_path: string | null
+          email: string
+          full_name: string
+          id: string
+          phone: string
+          status: string
+        }
+        Insert: {
+          admin_notes?: string
+          application_code: string
+          category: string
+          created_at?: string
+          details?: Json
+          document_name?: string | null
+          document_path?: string | null
+          email: string
+          full_name: string
+          id?: string
+          phone: string
+          status?: string
+        }
+        Update: {
+          admin_notes?: string
+          application_code?: string
+          category?: string
+          created_at?: string
+          details?: Json
+          document_name?: string | null
+          document_path?: string | null
+          email?: string
+          full_name?: string
+          id?: string
+          phone?: string
+          status?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           id: string
@@ -157,6 +259,10 @@ export type Database = {
           _valid_until: string
         }
         Returns: undefined
+      }
+      consume_form_submission_limit: {
+        Args: { _key_hash: string }
+        Returns: boolean
       }
       has_role: {
         Args: {
