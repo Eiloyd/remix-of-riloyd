@@ -7,8 +7,8 @@ import { Button } from "@/components/ui/button";
 import { AuthForm } from "@/components/auth-form";
 import { initials, peopleGroups, type PersonGroup, type PersonProfile } from "@/lib/people-config";
 
-const profileRoutes = { investors: "/investors/$slug", mentors: "/mentors/$slug", team: "/team/$slug" } as const;
-const listRoutes = { investors: "/investors", mentors: "/mentors", team: "/team" } as const;
+const profileRoutes = { investors: "/investors/$slug", mentors: "/mentors/$slug", team: "/team/$slug", startups: "/startups/$slug", businesses: "/businesses/$slug" } as const;
+const listRoutes = { investors: "/investors", mentors: "/mentors", team: "/team", startups: "/startups", businesses: "/businesses" } as const;
 
 function useSession() {
   const [session, setSession] = useState<Session | null>(null);

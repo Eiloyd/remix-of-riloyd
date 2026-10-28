@@ -14,7 +14,7 @@ type PeoplePageProps = {
   sectionTitle: string;
   items: [string, string][];
   cta: string;
-  ctaTo: "/contact" | "/register/investor" | "/register/mentor";
+  ctaTo: "/contact" | "/register/investor" | "/register/mentor" | "/register/startup" | "/register/business";
   group: PersonGroup;
   children?: ReactNode;
 };

@@ -1,5 +1,5 @@
 // Profiles are stored in the backend (managed at /admin) and visible only to signed-in visitors.
-export type PersonGroup = "investors" | "mentors" | "team";
+export type PersonGroup = "investors" | "mentors" | "team" | "startups" | "businesses";
 
 export type PersonProfile = {
   id: string;
@@ -19,6 +19,8 @@ export const peopleGroups: Record<PersonGroup, { label: string; singular: string
   investors: { label: "Our Investors", singular: "Investor" },
   mentors: { label: "Our Mentors", singular: "Mentor" },
   team: { label: "Our Team Members", singular: "Team Member" },
+  startups: { label: "Our Startups", singular: "Startup" },
+  businesses: { label: "Our Businesses", singular: "Business" },
 };
 
 export function initials(name: string) {
