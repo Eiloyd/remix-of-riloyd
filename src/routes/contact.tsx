@@ -47,10 +47,10 @@ type FormErrors = Partial<Record<"name" | "email" | "phone" | "service" | "indus
 const fieldClass = "min-h-12 w-full rounded-md border border-border bg-surface px-4 text-sm text-foreground outline-none transition focus:border-primary focus:ring-1 focus:ring-primary";
 
 const contactItems = [
-  { icon: Phone, label: "Request a Call", value: "Email us your contact details", href: "mailto:hello@riloyd.com?subject=Request%20a%20call" },
-  { icon: Mail, label: "Email Us", value: "hello@riloyd.com", href: "mailto:hello@riloyd.com" },
-  { icon: MessageSquareText, label: "Business Inquiries", value: "business@riloyd.com", href: "mailto:business@riloyd.com" },
-  { icon: BriefcaseBusiness, label: "Careers", value: "careers@riloyd.com", href: "mailto:careers@riloyd.com" },
+  { icon: Phone, label: "Request a Call", value: "Email us your contact details", href: "mailto:info@riloyd.in?subject=Request%20a%20call" },
+  { icon: Mail, label: "Email Us", value: "info@riloyd.in", href: "mailto:info@riloyd.in" },
+  { icon: MessageSquareText, label: "Business Inquiries", value: "business@riloyd.in", href: "mailto:business@riloyd.in" },
+  { icon: BriefcaseBusiness, label: "Careers", value: "careers@riloyd.in", href: "mailto:careers@riloyd.in" },
   { icon: Linkedin, label: "LinkedIn", value: "Riloyd on LinkedIn", href: "https://www.linkedin.com/company/145354558" },
   { icon: Instagram, label: "Instagram", value: "@riloyd.in", href: "https://www.instagram.com/riloyd.in/" },
 ];
@@ -174,7 +174,7 @@ function ContactPage() {
       </section>
 
       <section className="border-b border-border px-5 py-10 sm:px-6 lg:px-12">
-        <div className="mx-auto max-w-[1380px]"><div className="flex items-center justify-between gap-4"><p className="section-label">Frequently asked questions</p><a href="mailto:hello@riloyd.com" className="hidden text-xs font-bold sm:block">Still have questions? <span className="text-primary">Email Us →</span></a></div><div className="mt-6 grid gap-3 md:grid-cols-2">{faqs.map(([question, answer]) => <details key={question} className="faq-item border border-border bg-surface"><summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-4 text-sm font-semibold">{question}<span className="shrink-0 text-xl text-soft">+</span></summary><p className="px-4 pb-4 text-sm leading-relaxed text-soft">{answer}</p></details>)}</div></div>
+        <div className="mx-auto max-w-[1380px]"><div className="flex items-center justify-between gap-4"><p className="section-label">Frequently asked questions</p><a href="mailto:info@riloyd.in" className="hidden text-xs font-bold sm:block">Still have questions? <span className="text-primary">Email Us →</span></a></div><div className="mt-6 grid gap-3 md:grid-cols-2">{faqs.map(([question, answer]) => <details key={question} className="faq-item border border-border bg-surface"><summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-4 text-sm font-semibold">{question}<span className="shrink-0 text-xl text-soft">+</span></summary><p className="px-4 pb-4 text-sm leading-relaxed text-soft">{answer}</p></details>)}</div></div>
       </section>
 
 
