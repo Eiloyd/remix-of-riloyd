@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { ArrowLeft, ArrowRight, Download, RefreshCw, Save, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Download, FileText, RefreshCw, Save, Sheet, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,6 +10,8 @@ import { downloadRegistrationDocument, listInbox, reviewInbox } from "@/lib/inbo
 import { reviewStatuses } from "@/lib/submission-schemas";
 import { registrationConfigs, type RegistrationCategory } from "@/lib/registration-config";
 import type { Database } from "@/integrations/supabase/types";
+import { createInboxWorkbook, createSubmissionPdf } from "@/lib/submission-exports";
+import { deliverFile } from "@/lib/file-download";
 
 type Application = Database["public"]["Tables"]["registration_applications"]["Row"];
 type Enquiry = Database["public"]["Tables"]["contact_submissions"]["Row"];
@@ -26,6 +28,11 @@ export function SubmissionsAdmin({ kind }: { kind: "applications" | "enquiries" 
   const [page, setPage] = useState(0);
   const [filter, setFilter] = useState<"all" | Status>("all");
   const [search, setSearch] = useState("");
+  const [category, setCategory] = useState<"all" | RegistrationCategory>("all");
+  const [pdf, setPdf] = useState<{ blob: Blob; name: string } | null>(null);
+  const [pdfLoading, setPdfLoading] = useState(false);
+  const [excel, setExcel] = useState<Blob | null>(null);
+  const [exporting, setExporting] = useState(false);
   const [selected, setSelected] = useState<Row | null>(null);
   const [status, setStatus] = useState<Status>("new");
   const [notes, setNotes] = useState("");
@@ -35,18 +42,47 @@ export function SubmissionsAdmin({ kind }: { kind: "applications" | "enquiries" 
   const load = useCallback(async () => {
     setLoading(true); setMessage("");
     try {
-      const result = await list({ data: { kind, status: filter, page } });
+      const result = await list({ data: { kind, status: filter, category, page } });
       setRows(result.rows); setCount(result.count);
     } catch (error) { setMessage(error instanceof Error ? error.message : "Could not load submissions."); }
     finally { setLoading(false); }
-  }, [list, kind, filter, page]);
+  }, [list, kind, filter, category, page]);
   useEffect(() => { void load(); }, [load]);
+  useEffect(() => {
+    let cancelled = false; setPdf(null);
+    if (!selected) return;
+    setPdfLoading(true);
+    createSubmissionPdf(selected).then(blob => {
+      if (!cancelled) setPdf({ blob, name: `${"application_code" in selected ? selected.application_code : selected.id}.pdf` });
+    }).catch(() => { if (!cancelled) setMessage("The PDF could not be prepared. Reopen the entry to retry."); })
+      .finally(() => { if (!cancelled) setPdfLoading(false); });
+    return () => { cancelled = true; };
+  }, [selected]);
+
+  async function prepareExcel() {
+    setExporting(true); setExcel(null); setMessage("");
+    try {
+      async function allRows(inboxKind: "applications" | "enquiries") {
+        const result: Row[] = [];
+        for (let index = 0; ; index++) {
+          const batch = await list({ data: { kind: inboxKind, status: "all", category: "all", page: index } });
+          result.push(...batch.rows);
+          if (result.length >= batch.count || !batch.rows.length) break;
+        }
+        return result;
+      }
+      const [applications, enquiries] = await Promise.all([allRows("applications"), allRows("enquiries")]);
+      setExcel(await createInboxWorkbook(applications, enquiries));
+    } catch (error) { setMessage(error instanceof Error ? error.message : "Excel could not be prepared."); }
+    finally { setExporting(false); }
+  }
 
   async function save() {
     if (!selected) return;
     setBusy(true); setMessage("");
     try {
       await review({ data: { kind, id: selected.id, status, notes } });
+      setExcel(null);
       setSelected(null); await load(); setMessage("Review saved.");
     } catch (error) { setMessage(error instanceof Error ? error.message : "Could not save review."); }
     finally { setBusy(false); }
@@ -56,9 +92,7 @@ export function SubmissionsAdmin({ kind }: { kind: "applications" | "enquiries" 
     setBusy(true); setMessage("");
     try {
       const file = await download({ data: { id: selected.id } });
-      const url = URL.createObjectURL(new Blob([new Uint8Array(file.bytes)], { type: file.type }));
-      const link = document.createElement("a"); link.href = url; link.download = file.name; link.click();
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      await deliverFile(new Blob([new Uint8Array(file.bytes)], { type: file.type }), file.name);
     } catch (error) { setMessage(error instanceof Error ? error.message : "Could not download document."); }
     finally { setBusy(false); }
   }
@@ -73,6 +107,9 @@ export function SubmissionsAdmin({ kind }: { kind: "applications" | "enquiries" 
       <select aria-label="Filter review status" className={selectClass} value={filter} onChange={e => { setFilter(e.target.value as "all" | Status); setPage(0); }}><option value="all">All statuses</option>{reviewStatuses.map(value => <option key={value} value={value}>{value}</option>)}</select>
       <Button variant="outline" size="icon" title="Refresh inbox" aria-label="Refresh inbox" disabled={loading} onClick={() => void load()}><RefreshCw size={16} /></Button>
       <span className="text-sm text-muted-foreground">{count} submissions</span>
+      {kind === "applications" && <select aria-label="Filter registration type" className={selectClass} value={category} onChange={e => { setCategory(e.target.value as "all" | RegistrationCategory); setPage(0); }}><option value="all">All registration types</option>{Object.values(registrationConfigs).map(config => <option key={config.category} value={config.category}>{config.title}</option>)}</select>}
+      <Button variant="outline" disabled={exporting} onClick={() => void prepareExcel()}><Sheet size={16} /> {exporting ? "Preparing Excel…" : "Export all entries"}</Button>
+      {excel && <Button onClick={() => void deliverFile(excel, "Riloyd-all-submissions.xlsx")}><Download size={16} /> Download Excel</Button>}
     </div>
     {message && <p role="status" className="mb-4 text-sm text-primary">{message}</p>}
     <div className="divide-y divide-border border border-border">
@@ -86,6 +123,7 @@ export function SubmissionsAdmin({ kind }: { kind: "applications" | "enquiries" 
       <DialogContent className="max-h-[90vh] max-w-2xl overflow-y-auto">
         <DialogTitle>{selected && ("full_name" in selected ? selected.full_name : selected.name)}</DialogTitle>
         <DialogDescription>{selected?.email} · {selected?.phone}</DialogDescription>
+        <Button variant="outline" disabled={!pdf || pdfLoading} onClick={() => { if (pdf) void deliverFile(pdf.blob, pdf.name); }}><FileText size={16} /> {pdfLoading ? "Preparing PDF…" : "Download PDF"}</Button>
         {selected && "category" in selected ? <><p className="text-sm font-bold">{selected.category} · {selected.application_code}</p><dl className="grid gap-3">{Object.entries(details).filter(([key]) => key !== "consent").map(([key, value]) => <div key={key} className="border-b border-border pb-3"><dt className="text-xs font-bold text-muted-foreground">{labels[key] ?? key}</dt><dd className="mt-1 whitespace-pre-wrap break-words text-sm">{Array.isArray(value) ? value.join(", ") : String(value ?? "")}</dd></div>)}</dl>{selected.document_path && <Button variant="outline" disabled={busy} onClick={() => void downloadDocument()}><Download size={16} /> {selected.document_name}</Button>}</> : selected ? <dl className="space-y-3"><div><dt className="text-xs text-muted-foreground">Service / Industry</dt><dd>{selected.service} · {selected.industry}</dd></div><div><dt className="text-xs text-muted-foreground">Message</dt><dd className="whitespace-pre-wrap break-words">{selected.message}</dd></div></dl> : null}
         <div className="grid gap-2"><Label htmlFor={`${kind}-status`}>Review status</Label><select id={`${kind}-status`} className={selectClass} value={status} onChange={e => setStatus(e.target.value as Status)}>{reviewStatuses.map(value => <option key={value} value={value}>{value}</option>)}</select></div>
         <div className="grid gap-2"><Label htmlFor={`${kind}-notes`}>Private admin notes</Label><Textarea id={`${kind}-notes`} value={notes} maxLength={4000} onChange={e => setNotes(e.target.value)} /></div>
