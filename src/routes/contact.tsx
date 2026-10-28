@@ -51,6 +51,8 @@ const contactItems = [
   { icon: Mail, label: "Email Us", value: "hello@riloyd.com", href: "mailto:hello@riloyd.com" },
   { icon: MessageSquareText, label: "Business Inquiries", value: "business@riloyd.com", href: "mailto:business@riloyd.com" },
   { icon: BriefcaseBusiness, label: "Careers", value: "careers@riloyd.com", href: "mailto:careers@riloyd.com" },
+  { icon: Linkedin, label: "LinkedIn", value: "Riloyd on LinkedIn", href: "https://www.linkedin.com/company/145354558" },
+  { icon: Instagram, label: "Instagram", value: "@riloyd.in", href: "https://www.instagram.com/riloyd.in/" },
 ];
 
 const connectionTypes = [
@@ -152,7 +154,7 @@ function ContactPage() {
               <div className="min-w-0"><h3 className="font-bold">Our Location</h3><p className="mt-1 text-sm leading-relaxed text-soft">Gwalior, Madhya Pradesh, India</p><a className="mt-4 inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-xs font-bold" href="https://maps.google.com/?q=Gwalior+Madhya+Pradesh" target="_blank" rel="noreferrer">View Gwalior <ArrowRight size={14} className="text-primary" /></a></div>
             </div>
             <div className="mt-8 space-y-5 border-b border-border pb-8">
-              {contactItems.map(({ icon: Icon, label, value, href }) => <a key={label} href={href} className="flex min-w-0 items-center gap-4"><span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-primary text-primary"><Icon size={18} /></span><span className="min-w-0"><b className="block text-sm">{label}</b><span className="block break-all text-xs text-soft">{value}</span></span></a>)}
+              {contactItems.map(({ icon: Icon, label, value, href }) => <a key={label} href={href} {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="flex min-w-0 items-center gap-4"><span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-primary text-primary"><Icon size={18} /></span><span className="min-w-0"><b className="block text-sm">{label}</b><span className="block break-all text-xs text-soft">{value}</span></span></a>)}
             </div>
           </div>
 
