@@ -195,7 +195,7 @@ function Index() {
             <p className="mt-1.5 text-[10px] font-medium uppercase text-soft sm:text-xs">Let&apos;s create a stronger tomorrow together</p>
           </div>
           <div className="mt-[38px] flex flex-wrap items-start justify-start gap-x-8 gap-y-5 sm:gap-x-[2cm]">
-            <a className="contact-link" href="mailto:hello@riloyd.com" aria-label="Write to us by email at hello@riloyd.com"><Mail aria-hidden="true" /><span><b>Write to Us</b><small>We&apos;re just an email away</small></span></a>
+            <a className="contact-link" href="mailto:info@riloyd.in" aria-label="Write to us by email at info@riloyd.in"><Mail aria-hidden="true" /><span><b>Write to Us</b><small>We&apos;re just an email away</small></span></a>
             <Link className="contact-link" to="/contact" aria-label="Request a call back from the Riloyd team"><Phone aria-hidden="true" /><span><b>Request a Call</b><small>Send us your details</small></span></Link>
             <Link className="contact-link" to="/contact" aria-label="Send a message to Riloyd"><MessageCircle aria-hidden="true" /><span><b>Send a Message</b><small>We&apos;re here to help</small></span></Link>
             <Link className="contact-link" to="/contact" aria-label="Find the Riloyd office in Gwalior, India"><MapPin aria-hidden="true" /><span><b>Find Us</b><small>Gwalior, India</small></span></Link>
