@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { peopleGroups, slugify, type PersonGroup, type PersonProfile } from "@/lib/people-config";
 
 const schema = z.object({
-  person_group: z.enum(["investors", "mentors", "team"]),
+  person_group: z.enum(["investors", "mentors", "team", "startups", "businesses"]),
   name: z.string().trim().min(1, "Enter the name").max(120),
   role: z.string().trim().max(120),
   location: z.string().trim().max(80),

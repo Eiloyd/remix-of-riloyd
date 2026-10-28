@@ -15,6 +15,8 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DownloadsRouteImport } from './routes/downloads'
 import { Route as GlobalPresenceRouteImport } from './routes/global-presence'
+import { Route as BusinessesIndexRouteImport } from './routes/businesses.index'
+import { Route as BusinessesSlugRouteImport } from './routes/businesses.$slug'
 import { Route as GlobalPresenceSlugRouteImport } from './routes/global-presence.$slug'
 import { Route as InvestorsIndexRouteImport } from './routes/investors.index'
 import { Route as InvestorsSlugRouteImport } from './routes/investors.$slug'
@@ -27,6 +29,8 @@ import { Route as RegisterMentorRouteImport } from './routes/register/mentor'
 import { Route as RegisterStartupRouteImport } from './routes/register/startup'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
+import { Route as StartupsIndexRouteImport } from './routes/startups.index'
+import { Route as StartupsSlugRouteImport } from './routes/startups.$slug'
 import { Route as TeamIndexRouteImport } from './routes/team.index'
 import { Route as TeamSlugRouteImport } from './routes/team.$slug'
 
@@ -58,6 +62,16 @@ const DownloadsRoute = DownloadsRouteImport.update({
 const GlobalPresenceRoute = GlobalPresenceRouteImport.update({
   id: '/global-presence',
   path: '/global-presence',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessesIndexRoute = BusinessesIndexRouteImport.update({
+  id: '/businesses/',
+  path: '/businesses/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessesSlugRoute = BusinessesSlugRouteImport.update({
+  id: '/businesses/$slug',
+  path: '/businesses/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GlobalPresenceSlugRoute = GlobalPresenceSlugRouteImport.update({
@@ -120,6 +134,16 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
   path: '/services/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StartupsIndexRoute = StartupsIndexRouteImport.update({
+  id: '/startups/',
+  path: '/startups/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StartupsSlugRoute = StartupsSlugRouteImport.update({
+  id: '/startups/$slug',
+  path: '/startups/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TeamIndexRoute = TeamIndexRouteImport.update({
   id: '/team/',
   path: '/team/',
@@ -138,6 +162,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/downloads': typeof DownloadsRoute
   '/global-presence': typeof GlobalPresenceRouteWithChildren
+  '/businesses/$slug': typeof BusinessesSlugRoute
   '/global-presence/$slug': typeof GlobalPresenceSlugRoute
   '/investors/$slug': typeof InvestorsSlugRoute
   '/mentors/$slug': typeof MentorsSlugRoute
@@ -146,11 +171,14 @@ export interface FileRoutesByFullPath {
   '/register/mentor': typeof RegisterMentorRoute
   '/register/startup': typeof RegisterStartupRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/startups/$slug': typeof StartupsSlugRoute
   '/team/$slug': typeof TeamSlugRoute
+  '/businesses/': typeof BusinessesIndexRoute
   '/investors/': typeof InvestorsIndexRoute
   '/mentors/': typeof MentorsIndexRoute
   '/register/': typeof RegisterIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/startups/': typeof StartupsIndexRoute
   '/team/': typeof TeamIndexRoute
 }
 export interface FileRoutesByTo {
@@ -160,6 +188,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/downloads': typeof DownloadsRoute
   '/global-presence': typeof GlobalPresenceRouteWithChildren
+  '/businesses/$slug': typeof BusinessesSlugRoute
   '/global-presence/$slug': typeof GlobalPresenceSlugRoute
   '/investors/$slug': typeof InvestorsSlugRoute
   '/mentors/$slug': typeof MentorsSlugRoute
@@ -168,11 +197,14 @@ export interface FileRoutesByTo {
   '/register/mentor': typeof RegisterMentorRoute
   '/register/startup': typeof RegisterStartupRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/startups/$slug': typeof StartupsSlugRoute
   '/team/$slug': typeof TeamSlugRoute
+  '/businesses': typeof BusinessesIndexRoute
   '/investors': typeof InvestorsIndexRoute
   '/mentors': typeof MentorsIndexRoute
   '/register': typeof RegisterIndexRoute
   '/services': typeof ServicesIndexRoute
+  '/startups': typeof StartupsIndexRoute
   '/team': typeof TeamIndexRoute
 }
 export interface FileRoutesById {
@@ -183,6 +215,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/downloads': typeof DownloadsRoute
   '/global-presence': typeof GlobalPresenceRouteWithChildren
+  '/businesses/$slug': typeof BusinessesSlugRoute
   '/global-presence/$slug': typeof GlobalPresenceSlugRoute
   '/investors/$slug': typeof InvestorsSlugRoute
   '/mentors/$slug': typeof MentorsSlugRoute
@@ -191,11 +224,14 @@ export interface FileRoutesById {
   '/register/mentor': typeof RegisterMentorRoute
   '/register/startup': typeof RegisterStartupRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/startups/$slug': typeof StartupsSlugRoute
   '/team/$slug': typeof TeamSlugRoute
+  '/businesses/': typeof BusinessesIndexRoute
   '/investors/': typeof InvestorsIndexRoute
   '/mentors/': typeof MentorsIndexRoute
   '/register/': typeof RegisterIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/startups/': typeof StartupsIndexRoute
   '/team/': typeof TeamIndexRoute
 }
 export interface FileRouteTypes {
@@ -207,6 +243,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/downloads'
     | '/global-presence'
+    | '/businesses/$slug'
     | '/global-presence/$slug'
     | '/investors/$slug'
     | '/mentors/$slug'
@@ -215,11 +252,14 @@ export interface FileRouteTypes {
     | '/register/mentor'
     | '/register/startup'
     | '/services/$slug'
+    | '/startups/$slug'
     | '/team/$slug'
+    | '/businesses/'
     | '/investors/'
     | '/mentors/'
     | '/register/'
     | '/services/'
+    | '/startups/'
     | '/team/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -229,6 +269,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/downloads'
     | '/global-presence'
+    | '/businesses/$slug'
     | '/global-presence/$slug'
     | '/investors/$slug'
     | '/mentors/$slug'
@@ -237,11 +278,14 @@ export interface FileRouteTypes {
     | '/register/mentor'
     | '/register/startup'
     | '/services/$slug'
+    | '/startups/$slug'
     | '/team/$slug'
+    | '/businesses'
     | '/investors'
     | '/mentors'
     | '/register'
     | '/services'
+    | '/startups'
     | '/team'
   id:
     | '__root__'
@@ -251,6 +295,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/downloads'
     | '/global-presence'
+    | '/businesses/$slug'
     | '/global-presence/$slug'
     | '/investors/$slug'
     | '/mentors/$slug'
@@ -259,11 +304,14 @@ export interface FileRouteTypes {
     | '/register/mentor'
     | '/register/startup'
     | '/services/$slug'
+    | '/startups/$slug'
     | '/team/$slug'
+    | '/businesses/'
     | '/investors/'
     | '/mentors/'
     | '/register/'
     | '/services/'
+    | '/startups/'
     | '/team/'
   fileRoutesById: FileRoutesById
 }
@@ -274,6 +322,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DownloadsRoute: typeof DownloadsRoute
   GlobalPresenceRoute: typeof GlobalPresenceRouteWithChildren
+  BusinessesSlugRoute: typeof BusinessesSlugRoute
   InvestorsSlugRoute: typeof InvestorsSlugRoute
   MentorsSlugRoute: typeof MentorsSlugRoute
   RegisterBusinessRoute: typeof RegisterBusinessRoute
@@ -281,11 +330,14 @@ export interface RootRouteChildren {
   RegisterMentorRoute: typeof RegisterMentorRoute
   RegisterStartupRoute: typeof RegisterStartupRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
+  StartupsSlugRoute: typeof StartupsSlugRoute
   TeamSlugRoute: typeof TeamSlugRoute
+  BusinessesIndexRoute: typeof BusinessesIndexRoute
   InvestorsIndexRoute: typeof InvestorsIndexRoute
   MentorsIndexRoute: typeof MentorsIndexRoute
   RegisterIndexRoute: typeof RegisterIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
+  StartupsIndexRoute: typeof StartupsIndexRoute
   TeamIndexRoute: typeof TeamIndexRoute
 }
 
@@ -331,6 +383,20 @@ declare module '@tanstack/react-router' {
       path: '/global-presence'
       fullPath: '/global-presence'
       preLoaderRoute: typeof GlobalPresenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/businesses/': {
+      id: '/businesses/'
+      path: '/businesses'
+      fullPath: '/businesses/'
+      preLoaderRoute: typeof BusinessesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/businesses/$slug': {
+      id: '/businesses/$slug'
+      path: '/businesses/$slug'
+      fullPath: '/businesses/$slug'
+      preLoaderRoute: typeof BusinessesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/global-presence/$slug': {
@@ -417,6 +483,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/startups/': {
+      id: '/startups/'
+      path: '/startups'
+      fullPath: '/startups/'
+      preLoaderRoute: typeof StartupsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/startups/$slug': {
+      id: '/startups/$slug'
+      path: '/startups/$slug'
+      fullPath: '/startups/$slug'
+      preLoaderRoute: typeof StartupsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/team/': {
       id: '/team/'
       path: '/team'
@@ -453,6 +533,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DownloadsRoute: DownloadsRoute,
   GlobalPresenceRoute: GlobalPresenceRouteWithChildren,
+  BusinessesSlugRoute: BusinessesSlugRoute,
   InvestorsSlugRoute: InvestorsSlugRoute,
   MentorsSlugRoute: MentorsSlugRoute,
   RegisterBusinessRoute: RegisterBusinessRoute,
@@ -460,11 +541,14 @@ const rootRouteChildren: RootRouteChildren = {
   RegisterMentorRoute: RegisterMentorRoute,
   RegisterStartupRoute: RegisterStartupRoute,
   ServicesSlugRoute: ServicesSlugRoute,
+  StartupsSlugRoute: StartupsSlugRoute,
   TeamSlugRoute: TeamSlugRoute,
+  BusinessesIndexRoute: BusinessesIndexRoute,
   InvestorsIndexRoute: InvestorsIndexRoute,
   MentorsIndexRoute: MentorsIndexRoute,
   RegisterIndexRoute: RegisterIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
+  StartupsIndexRoute: StartupsIndexRoute,
   TeamIndexRoute: TeamIndexRoute,
 }
 export const routeTree = rootRouteImport

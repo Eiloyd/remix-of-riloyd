@@ -50,7 +50,7 @@ export function GrowthDetail() {
   return (
     <>
       <section className="relative min-h-[490px] overflow-hidden border-b border-border sm:min-h-[550px] lg:min-h-[590px]">
-        <img decoding="async" src={heroImage} width={1600} height={864} alt="Laptop showing a rising sales chart in a city boardroom at sunset" className="absolute inset-0 h-full w-full object-cover object-[65%_center]" decoding="async" fetchPriority="high" />
+        <img src={heroImage} width={1600} height={864} alt="Laptop showing a rising sales chart in a city boardroom at sunset" className="absolute inset-0 h-full w-full object-cover object-[65%_center]" decoding="async" fetchPriority="high" />
         <div className="hero-shade absolute inset-0" />
         <div className="relative z-10 mx-auto flex min-h-[490px] max-w-[1380px] flex-col justify-center px-5 py-12 sm:min-h-[550px] sm:px-6 lg:min-h-[590px] lg:px-12">
           <nav aria-label="Breadcrumb" className="mb-9 flex items-center gap-2 text-xs text-soft"><Link to="/">Home</Link><ChevronRight size={12} /><Link to="/services">Services</Link><ChevronRight size={12} /><span>Sales & Revenue Growth</span></nav>
@@ -64,7 +64,7 @@ export function GrowthDetail() {
 
       <section className="border-b border-border bg-card text-card-foreground">
         <div className="mx-auto grid max-w-[1380px] items-center gap-8 px-5 py-12 sm:px-6 lg:grid-cols-[0.95fr_1.1fr] lg:gap-12 lg:px-12 lg:py-16">
-          <img decoding="async" src={targetImage} width={1104} height={912} loading="lazy" alt="Red arrow striking the center of a target" className="aspect-[5/4] w-full object-cover" decoding="async" />
+          <img src={targetImage} width={1104} height={912} loading="lazy" alt="Red arrow striking the center of a target" className="aspect-[5/4] w-full object-cover" decoding="async" />
           <div>
             <Eyebrow light>What we do</Eyebrow>
             <h2 className="mt-4 text-3xl font-black uppercase leading-[1.03] sm:text-4xl lg:text-5xl">Turn sales into<br />a <span className="text-primary">growth engine.</span></h2>
@@ -81,7 +81,7 @@ export function GrowthDetail() {
       </section>
 
       <section className="relative overflow-hidden border-b border-border">
-        <img decoding="async" src={processImage} width={1600} height={800} loading="lazy" alt="Business leader climbing illuminated steps toward a city skyline" className="absolute inset-0 h-full w-full object-cover object-[65%_center]" decoding="async" />
+        <img src={processImage} width={1600} height={800} loading="lazy" alt="Business leader climbing illuminated steps toward a city skyline" className="absolute inset-0 h-full w-full object-cover object-[65%_center]" decoding="async" />
         <div className="hero-shade absolute inset-0" />
         <div className="relative z-10 mx-auto max-w-[1380px] px-5 py-14 sm:px-6 lg:px-12 lg:py-20">
           <Eyebrow>Our growth process</Eyebrow>
@@ -111,12 +111,12 @@ export function GrowthDetail() {
               ))}
             </div>
           </div>
-          <img decoding="async" src={reportImage} width={1104} height={912} loading="lazy" alt="Sales growth charts in a strategy report on an executive desk" className="aspect-[4/3] w-full object-cover" decoding="async" />
+          <img src={reportImage} width={1104} height={912} loading="lazy" alt="Sales growth charts in a strategy report on an executive desk" className="aspect-[4/3] w-full object-cover" decoding="async" />
         </div>
       </section>
 
       <section className="relative overflow-hidden border-b border-border">
-        <img decoding="async" src={ctaImage} width={1600} height={656} loading="lazy" alt="Rising red revenue chart against a sunset skyline" className="absolute inset-0 h-full w-full object-cover object-[65%_center]" decoding="async" />
+        <img src={ctaImage} width={1600} height={656} loading="lazy" alt="Rising red revenue chart against a sunset skyline" className="absolute inset-0 h-full w-full object-cover object-[65%_center]" decoding="async" />
         <div className="hero-shade absolute inset-0" />
         <div className="relative z-10 mx-auto max-w-[1380px] px-5 py-16 sm:px-6 lg:px-12 lg:py-24">
           <h2 className="headline max-w-xl text-3xl font-black uppercase leading-[1.02] sm:text-5xl">Ready to scale<br /><span className="text-primary">your revenue?</span></h2>

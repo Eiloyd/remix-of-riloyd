@@ -29,6 +29,13 @@
       "when": 1793172226261,
       "tag": "0003_admin_read_only_setup_metadata",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1793181574408,
+      "tag": "0004_publish_approved_registrations",
+      "breakpoints": true
     }
   ]
 }

@@ -186,6 +186,7 @@ export type Database = {
           role: string
           slug: string
           sort_order: number
+          source_application_id: string | null
           summary: string
         }
         Insert: {
@@ -200,6 +201,7 @@ export type Database = {
           role?: string
           slug: string
           sort_order?: number
+          source_application_id?: string | null
           summary?: string
         }
         Update: {
@@ -214,6 +216,7 @@ export type Database = {
           role?: string
           slug?: string
           sort_order?: number
+          source_application_id?: string | null
           summary?: string
         }
         Relationships: []

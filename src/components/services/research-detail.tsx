@@ -72,7 +72,7 @@ export function ResearchDetail() {
   return (
     <>
       <section className="relative overflow-hidden border-b border-border">
-        <img decoding="async" src={heroAsset} alt="Riloyd strategy boardroom with market intelligence dashboard" className="absolute inset-0 h-full w-full object-cover" decoding="async" fetchPriority="high" />
+        <img src={heroAsset} alt="Riloyd strategy boardroom with market intelligence dashboard" className="absolute inset-0 h-full w-full object-cover" decoding="async" fetchPriority="high" />
         <div className="hero-shade absolute inset-0" />
         <div className="relative z-10 mx-auto max-w-[1380px] px-5 py-16 sm:px-6 lg:px-12 lg:py-24">
           <nav className="flex items-center gap-2 text-xs text-soft">
@@ -126,7 +126,7 @@ export function ResearchDetail() {
               Discuss Your Requirements <ArrowRight size={16} />
             </Link>
           </div>
-          <img decoding="async" src={overviewAsset} alt="Riloyd boardroom with city skyline at sunset" className="aspect-[16/10] w-full rounded-md object-cover object-[65%_center]" loading="lazy" decoding="async" />
+          <img src={overviewAsset} alt="Riloyd boardroom with city skyline at sunset" className="aspect-[16/10] w-full rounded-md object-cover object-[65%_center]" loading="lazy" decoding="async" />
           <ul className="grid gap-4">
             {benefits.map(([icon, label]) => (
               <li key={label} className="flex items-center gap-4 text-sm font-semibold">
