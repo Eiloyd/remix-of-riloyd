@@ -29,7 +29,7 @@ describe("Private registration rules", () => {
   it.each(["startup", "mentor", "investor", "business"] as const)("validates and preserves %s registration fields", category => {
     const data = validateRegistration(registration(category));
     expect(data.category).toBe(category); expect(data.email).toBe("backend-test@example.com");
-    expect(data.details.fullName).toBe("Valid test information");
+    expect(data.details["fullName"]).toBe("Valid test information");
   });
   it("rejects registration without consent", () => {
     const form = registration("mentor"); form.delete("consent");
