@@ -1,0 +1,60 @@
+-- The content of this migration cannot be applied: registration_applications and related inbox objects already exist in the remixed database.
+-- CREATE TABLE public.registration_applications (
+--  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+--  application_code text NOT NULL UNIQUE,
+--  category text NOT NULL CHECK (category IN ('startup','mentor','investor','business')),
+--  full_name text NOT NULL,
+--  email text NOT NULL,
+--  phone text NOT NULL,
+--  details jsonb NOT NULL DEFAULT '{}'::jsonb,
+--  document_path text,
+--  document_name text,
+--  status text NOT NULL DEFAULT 'new' CHECK (status IN ('new','reviewed','approved','rejected')),
+--  admin_notes text NOT NULL DEFAULT '',
+--  created_at timestamptz NOT NULL DEFAULT now()
+-- );
+-- GRANT SELECT, UPDATE ON public.registration_applications TO authenticated;
+-- GRANT ALL ON public.registration_applications TO service_role;
+-- ALTER TABLE public.registration_applications ENABLE ROW LEVEL SECURITY;
+-- CREATE POLICY "Admins read applications" ON public.registration_applications FOR SELECT TO authenticated USING (public.has_role(auth.uid(), 'admin'));
+-- CREATE POLICY "Admins review applications" ON public.registration_applications FOR UPDATE TO authenticated USING (public.has_role(auth.uid(), 'admin')) WITH CHECK (public.has_role(auth.uid(), 'admin'));
+-- CREATE INDEX registration_applications_created_idx ON public.registration_applications (created_at DESC);
+-- CREATE TABLE public.contact_submissions (
+--  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+--  name text NOT NULL,
+--  email text NOT NULL,
+--  phone text NOT NULL,
+--  service text NOT NULL,
+--  industry text NOT NULL,
+--  message text NOT NULL,
+--  status text NOT NULL DEFAULT 'new' CHECK (status IN ('new','reviewed','approved','rejected')),
+--  admin_notes text NOT NULL DEFAULT '',
+--  created_at timestamptz NOT NULL DEFAULT now()
+-- );
+-- GRANT SELECT, UPDATE ON public.contact_submissions TO authenticated;
+-- GRANT ALL ON public.contact_submissions TO service_role;
+-- ALTER TABLE public.contact_submissions ENABLE ROW LEVEL SECURITY;
+-- CREATE POLICY "Admins read enquiries" ON public.contact_submissions FOR SELECT TO authenticated USING (public.has_role(auth.uid(), 'admin'));
+-- CREATE POLICY "Admins review enquiries" ON public.contact_submissions FOR UPDATE TO authenticated USING (public.has_role(auth.uid(), 'admin')) WITH CHECK (public.has_role(auth.uid(), 'admin'));
+-- CREATE INDEX contact_submissions_created_idx ON public.contact_submissions (created_at DESC);
+-- CREATE TABLE public.form_submission_limits (
+--  key_hash text PRIMARY KEY,
+--  window_started_at timestamptz NOT NULL DEFAULT now(),
+--  attempts integer NOT NULL DEFAULT 1
+-- );
+-- GRANT ALL ON public.form_submission_limits TO service_role;
+-- ALTER TABLE public.form_submission_limits ENABLE ROW LEVEL SECURITY;
+-- CREATE FUNCTION public.consume_form_submission_limit(_key_hash text) RETURNS boolean LANGUAGE plpgsql SECURITY DEFINER SET search_path = public AS $$
+-- DECLARE _attempts integer;
+-- BEGIN
+--  INSERT INTO public.form_submission_limits AS limits (key_hash) VALUES (_key_hash)
+--  ON CONFLICT (key_hash) DO UPDATE SET
+--  attempts = CASE WHEN limits.window_started_at < now() - interval '15 minutes' THEN 1 ELSE limits.attempts + 1 END,
+--  window_started_at = CASE WHEN limits.window_started_at < now() - interval '15 minutes' THEN now() ELSE limits.window_started_at END
+--  RETURNING attempts INTO _attempts;
+--  RETURN _attempts <= 10;
+-- END;
+-- $$;
+-- REVOKE ALL ON FUNCTION public.consume_form_submission_limit(text) FROM PUBLIC, anon, authenticated;
+-- GRANT EXECUTE ON FUNCTION public.consume_form_submission_limit(text) TO service_role;
+-- CREATE POLICY "Admins download registration documents" ON storage.objects FOR SELECT TO authenticated USING (bucket_id = 'registration-documents' AND public.has_role(auth.uid(), 'admin'));

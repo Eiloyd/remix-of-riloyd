@@ -1,0 +1,18 @@
+-- The content of this migration cannot be applied: customer_reports and related storage policies already exist in the remixed database.
+-- CREATE TABLE public.customer_reports (
+--  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+--  report_number text NOT NULL UNIQUE,
+--  publish_date date NOT NULL,
+--  title text NOT NULL,
+--  category text NOT NULL CHECK (category IN ('business','valuation','research','document')),
+--  file_path text NOT NULL,
+--  file_name text NOT NULL,
+--  file_size integer NOT NULL,
+--  active boolean NOT NULL DEFAULT true,
+--  created_at timestamptz NOT NULL DEFAULT now()
+-- );
+-- GRANT SELECT, INSERT, UPDATE, DELETE ON public.customer_reports TO authenticated;
+-- GRANT ALL ON public.customer_reports TO service_role;
+-- ALTER TABLE public.customer_reports ENABLE ROW LEVEL SECURITY;
+-- CREATE POLICY "Admins manage customer reports" ON public.customer_reports FOR ALL TO authenticated USING (public.has_role(auth.uid(), 'admin')) WITH CHECK (public.has_role(auth.uid(), 'admin'));
+-- CREATE POLICY "Admins manage private report files" ON storage.objects FOR ALL TO authenticated USING (bucket_id = 'customer-reports' AND public.has_role(auth.uid(), 'admin')) WITH CHECK (bucket_id = 'customer-reports' AND public.has_role(auth.uid(), 'admin'));
