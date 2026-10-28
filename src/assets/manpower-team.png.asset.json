@@ -1,11 +1,11 @@
 {
-  "asset_id": "fc05f4c3-24fe-4aba-ad46-702595ad7f0d",
-  "content_type": "image/png",
-  "created_at": "2026-10-13T15:06:58Z",
-  "original_filename": "manpower-team.png",
-  "project_id": "e7168a0e-0844-4ba9-9b84-d50f52d79d68",
-  "r2_key": "a/v1/e7168a0e-0844-4ba9-9b84-d50f52d79d68/fc05f4c3-24fe-4aba-ad46-702595ad7f0d/manpower-team.png",
-  "size": 192648,
-  "url": "/__l5e/assets-v1/fc05f4c3-24fe-4aba-ad46-702595ad7f0d/manpower-team.png",
-  "version": 1
+  "version": 1,
+  "asset_id": "a1685500-52e6-493c-b639-30e0898a6e38",
+  "project_id": "9d2636be-651a-4151-9fb2-b9b514ccdfc1",
+  "url": "/__l5e/assets-v1/a1685500-52e6-493c-b639-30e0898a6e38/manpower-team.png.compact.webp",
+  "r2_key": "a/v1/9d2636be-651a-4151-9fb2-b9b514ccdfc1/a1685500-52e6-493c-b639-30e0898a6e38/manpower-team.png.compact.webp",
+  "original_filename": "manpower-team.png.compact.webp",
+  "size": 30440,
+  "content_type": "image/webp",
+  "created_at": "2026-10-28T07:40:36Z"
 }

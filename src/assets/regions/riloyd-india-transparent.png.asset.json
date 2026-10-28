@@ -1,11 +1,11 @@
 {
-  "asset_id": "61c3e0d8-d763-4b98-8264-72d560a31d3e",
-  "content_type": "image/png",
-  "created_at": "2026-10-13T15:10:01Z",
-  "original_filename": "riloyd-india-transparent.png",
-  "project_id": "e7168a0e-0844-4ba9-9b84-d50f52d79d68",
-  "r2_key": "a/v1/e7168a0e-0844-4ba9-9b84-d50f52d79d68/61c3e0d8-d763-4b98-8264-72d560a31d3e/riloyd-india-transparent.png",
-  "size": 132532,
-  "url": "/__l5e/assets-v1/61c3e0d8-d763-4b98-8264-72d560a31d3e/riloyd-india-transparent.png",
-  "version": 1
+  "version": 1,
+  "asset_id": "8e383bb0-14e8-4fa3-8970-d764683a72ac",
+  "project_id": "9d2636be-651a-4151-9fb2-b9b514ccdfc1",
+  "url": "/__l5e/assets-v1/8e383bb0-14e8-4fa3-8970-d764683a72ac/riloyd-india-transparent.png.compact.webp",
+  "r2_key": "a/v1/9d2636be-651a-4151-9fb2-b9b514ccdfc1/8e383bb0-14e8-4fa3-8970-d764683a72ac/riloyd-india-transparent.png.compact.webp",
+  "original_filename": "riloyd-india-transparent.png.compact.webp",
+  "size": 21278,
+  "content_type": "image/webp",
+  "created_at": "2026-10-28T07:40:55Z"
 }
