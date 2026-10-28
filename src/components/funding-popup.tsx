@@ -120,52 +120,14 @@ export function FundingPopup() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={onSubmit} noValidate className="mt-5 space-y-3">
-                  <div>
-                    <input className={inputCls} placeholder="Founder Name *" value={form.founderName} onChange={(e) => set("founderName", e.target.value)} maxLength={100} />
-                    {err("founderName")}
-                  </div>
-                  <div>
-                    <input className={inputCls} type="email" placeholder="Email Address *" value={form.email} onChange={(e) => set("email", e.target.value)} maxLength={255} />
-                    {err("email")}
-                  </div>
-                  <div>
-                    <div className="flex">
-                      <span className="flex items-center rounded-l-md border border-r-0 border-border bg-muted px-3 text-sm text-muted-foreground">+91</span>
-                      <input className={`${inputCls} rounded-l-none`} inputMode="numeric" placeholder="Mobile Number *" value={form.mobile} onChange={(e) => set("mobile", e.target.value.replace(/\D/g, "").slice(0, 10))} />
-                    </div>
-                    {err("mobile")}
-                  </div>
-                  <div>
-                    <input className={inputCls} placeholder="Startup Name *" value={form.startupName} onChange={(e) => set("startupName", e.target.value)} maxLength={120} />
-                    {err("startupName")}
-                  </div>
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    <div>
-                      <select className={inputCls} value={form.stage} onChange={(e) => set("stage", e.target.value)} aria-label="Startup Stage">
-                        <option value="">Startup Stage *</option>
-                        {stages.map((s) => <option key={s}>{s}</option>)}
-                      </select>
-                      {err("stage")}
-                    </div>
-                    <div>
-                      <select className={inputCls} value={form.industry} onChange={(e) => set("industry", e.target.value)} aria-label="Industry / Sector">
-                        <option value="">Industry / Sector *</option>
-                        {industries.map((s) => <option key={s}>{s}</option>)}
-                      </select>
-                      {err("industry")}
-                    </div>
-                  </div>
-                  <div>
-                    <textarea className={`${inputCls} resize-none`} rows={3} placeholder="Short Description about your startup *" value={form.description} onChange={(e) => set("description", e.target.value.slice(0, 200))} />
-                    <div className="flex justify-between">{err("description") ?? <span />}<span className="text-xs text-muted-foreground">{form.description.length}/200</span></div>
-                  </div>
-                  {failure && <p className="text-sm text-destructive">{failure}</p>}
-                  <button type="submit" disabled={busy} className="flex w-full items-center justify-center gap-2 rounded-md bg-primary py-3 text-sm font-bold uppercase tracking-wide text-primary-foreground transition hover:opacity-90 disabled:opacity-60">
-                    <Rocket className="h-4 w-4" /> {busy ? "Submitting…" : "Submit Application"}
-                  </button>
-                  <p className="text-center text-xs text-muted-foreground">Your information is safe with us.</p>
-                </form>
+                <div className="mt-5 overflow-hidden rounded-lg border border-border bg-card">
+                  <iframe
+                    title="Startup Idea Registration Form"
+                    src="https://forms.zohopublic.in/RIPLSTORES/form/StartupIdeaRegistrationForm/formperma/1SNzTjiKwSF14T0BCEyJLvZCZDDowZl3NYWbAjpy1KE"
+                    className="block h-[65vh] w-full border-0"
+                    loading="lazy"
+                  />
+                </div>
               )}
             </div>
           </div>
