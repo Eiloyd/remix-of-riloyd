@@ -109,7 +109,7 @@ export function SiteFooter() {
     </div>
     <div className="border-t border-border px-5 py-4 text-center text-[10px] text-muted-foreground">
       <p>© {new Date().getFullYear()} RILOYD. All rights reserved by RISHISHWAR INDUSTRY PRIVATE LIMITED.</p>
-      <p className="mt-2 text-[11px] font-semibold tracking-wide text-foreground">Riloyd &mdash; a unit of RISHISHWAR INDUSTRY PRIVATE LIMITED</p>
+      <p className="mt-2">Riloyd &mdash; a unit of RISHISHWAR INDUSTRY PRIVATE LIMITED</p>
     </div>
   </footer>;
 }
