@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DownloadsRouteImport } from './routes/downloads'
 import { Route as GlobalPresenceRouteImport } from './routes/global-presence'
 import { Route as GlobalPresenceSlugRouteImport } from './routes/global-presence.$slug'
 import { Route as InvestorsIndexRouteImport } from './routes/investors.index'
@@ -47,6 +48,11 @@ const AdminRoute = AdminRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DownloadsRoute = DownloadsRouteImport.update({
+  id: '/downloads',
+  path: '/downloads',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GlobalPresenceRoute = GlobalPresenceRouteImport.update({
@@ -130,6 +136,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
   '/contact': typeof ContactRoute
+  '/downloads': typeof DownloadsRoute
   '/global-presence': typeof GlobalPresenceRouteWithChildren
   '/global-presence/$slug': typeof GlobalPresenceSlugRoute
   '/investors/$slug': typeof InvestorsSlugRoute
@@ -151,6 +158,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
   '/contact': typeof ContactRoute
+  '/downloads': typeof DownloadsRoute
   '/global-presence': typeof GlobalPresenceRouteWithChildren
   '/global-presence/$slug': typeof GlobalPresenceSlugRoute
   '/investors/$slug': typeof InvestorsSlugRoute
@@ -173,6 +181,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
   '/contact': typeof ContactRoute
+  '/downloads': typeof DownloadsRoute
   '/global-presence': typeof GlobalPresenceRouteWithChildren
   '/global-presence/$slug': typeof GlobalPresenceSlugRoute
   '/investors/$slug': typeof InvestorsSlugRoute
@@ -196,6 +205,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/admin'
     | '/contact'
+    | '/downloads'
     | '/global-presence'
     | '/global-presence/$slug'
     | '/investors/$slug'
@@ -217,6 +227,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/admin'
     | '/contact'
+    | '/downloads'
     | '/global-presence'
     | '/global-presence/$slug'
     | '/investors/$slug'
@@ -238,6 +249,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/admin'
     | '/contact'
+    | '/downloads'
     | '/global-presence'
     | '/global-presence/$slug'
     | '/investors/$slug'
@@ -260,6 +272,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRoute
   ContactRoute: typeof ContactRoute
+  DownloadsRoute: typeof DownloadsRoute
   GlobalPresenceRoute: typeof GlobalPresenceRouteWithChildren
   InvestorsSlugRoute: typeof InvestorsSlugRoute
   MentorsSlugRoute: typeof MentorsSlugRoute
@@ -304,6 +317,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/downloads': {
+      id: '/downloads'
+      path: '/downloads'
+      fullPath: '/downloads'
+      preLoaderRoute: typeof DownloadsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/global-presence': {
@@ -431,6 +451,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AdminRoute: AdminRoute,
   ContactRoute: ContactRoute,
+  DownloadsRoute: DownloadsRoute,
   GlobalPresenceRoute: GlobalPresenceRouteWithChildren,
   InvestorsSlugRoute: InvestorsSlugRoute,
   MentorsSlugRoute: MentorsSlugRoute,
