@@ -25,3 +25,4 @@
 - Import static website images directly from local frontend asset files so managed Git sync includes the actual image bytes; retain unused historical CDN pointers without deleting hosted assets to preserve earlier deployments.
 - Investor, Mentor and Team profiles live in the backend, are readable only by signed-in users and editable only by admins at /admin, so no sample or private profile data ships in the site code.
 - Approving a registration (status approved) publishes a public-safe profile (no email/phone) to the matching Investors/Mentors/Startups/Businesses page via a database trigger keyed by source_application_id; any other status removes it, so admin review is the single publish switch.
+- Admin AI review summaries call the AI Gateway only from an admin-checked server function and exclude applicant contact details from the prompt, so private data stays minimal.
