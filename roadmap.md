@@ -1,4 +1,5 @@
 ## In progress
+- [ ] Add footer Downloads page, admin report uploads, private storage and matching report number/publish date download flow
 - [x] Show registration categories clearly in admin and add per-entry PDF / all-entry Excel downloads; verified real form submissions, PDF contents and both Excel sheets
 - [x] Save four registration types and private documents; verified all four through the website and confirmed saved rows
 - [x] Save contact enquiries and add applications/enquiries with review status and notes in Admin Panel
