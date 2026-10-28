@@ -105,7 +105,7 @@ function Index() {
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
       <section id="home" className="hero-shell relative min-h-[560px] border-b border-border sm:min-h-[640px] lg:min-h-[660px]">
-        <img decoding="async"
+        <img
           src={heroAsset}
           alt="Two mountaineers helping each other reach a summit"
           className="absolute inset-0 h-full w-full object-cover object-[63%_38%] lg:object-[75%_38%]" decoding="async" fetchPriority="high" />

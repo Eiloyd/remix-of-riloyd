@@ -53,7 +53,7 @@ function ServicesIndex() {
         return (
           <section key={service.slug} className={`border-b border-border ${onLight ? "bg-card text-card-foreground" : "bg-background text-foreground"}`}>
             <div className={`mx-auto grid max-w-[1380px] items-center gap-8 px-5 py-12 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-12 lg:py-16 ${index % 2 === 1 ? "lg:[&>img]:order-2" : ""}`}>
-              <img decoding="async"
+              <img
                 src={service.image}
                 alt={service.imageAlt}
                 loading="lazy"
