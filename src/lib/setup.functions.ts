@@ -3,10 +3,7 @@ import { setResponseHeader } from '@tanstack/react-start/server';
 import { z } from 'zod';
 import { requireSupabaseAuth } from '@/integrations/supabase/auth-middleware';
 import { compareSchema, drizzleSchemaEmpty, expectedFunctions, expectedTables, type Finding } from './setup-contract';
-
-export function requireSetupAdmin(admin: boolean | null, failed: boolean) {
-  if (failed || admin !== true) throw new Error('Admin access required.');
-}
+import { requireSetupAdmin } from './setup-access';
 const metadataSchema = z.object({ tables: z.array(z.object({ name: z.string(), rls: z.boolean(), columns: z.array(z.object({ name: z.string(), type: z.string(), nullable: z.boolean() })) })), functions: z.array(z.string()) });
 export const checkSetup = createServerFn({ method: 'POST' })
   .middleware([requireSupabaseAuth])
