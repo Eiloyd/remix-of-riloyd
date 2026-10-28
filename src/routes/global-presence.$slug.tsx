@@ -8,7 +8,7 @@ export const Route = createFileRoute("/global-presence/$slug")({
     const market = findMarket(params.slug);
     const title = market ? `${market.name} | Riloyd Global Presence` : "Market Not Found | Riloyd";
     const description = market?.description ?? "Explore Riloyd's global market presence.";
-    return { meta: [{ title }, { name: "description", content: description }, { property: "og:title", content: title }, { property: "og:description", content: description }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] };
+    return { meta: [{ title }, { name: "description", content: description }, { property: "og:title", content: title }, { property: "og:description", content: description }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }, { name: "robots", content: "noindex" }] };
   },
   component: MarketPage,
 });
