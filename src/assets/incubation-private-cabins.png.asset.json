@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "bda52aef-91d4-4d60-a568-3546ca265742",
-  "project_id": "327f6149-95d1-46e7-876c-5e192ab63711",
-  "url": "/__l5e/assets-v1/bda52aef-91d4-4d60-a568-3546ca265742/incubation-private-cabins.png",
-  "r2_key": "a/v1/327f6149-95d1-46e7-876c-5e192ab63711/bda52aef-91d4-4d60-a568-3546ca265742/incubation-private-cabins.png",
-  "original_filename": "incubation-private-cabins.png",
-  "size": 2752237,
   "content_type": "image/png",
-  "created_at": "2026-10-13T15:06:41Z"
+  "created_at": "2026-10-13T15:06:41Z",
+  "original_filename": "incubation-private-cabins.png",
+  "project_id": "e7168a0e-0844-4ba9-9b84-d50f52d79d68",
+  "r2_key": "a/v1/e7168a0e-0844-4ba9-9b84-d50f52d79d68/bda52aef-91d4-4d60-a568-3546ca265742/incubation-private-cabins.png",
+  "size": 2752237,
+  "url": "/__l5e/assets-v1/bda52aef-91d4-4d60-a568-3546ca265742/incubation-private-cabins.png",
+  "version": 1
 }

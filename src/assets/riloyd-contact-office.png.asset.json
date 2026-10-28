@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "cbd54327-f4ef-4882-9ab6-30834d8f252b",
-  "project_id": "327f6149-95d1-46e7-876c-5e192ab63711",
-  "url": "/__l5e/assets-v1/cbd54327-f4ef-4882-9ab6-30834d8f252b/riloyd-contact-office.png",
-  "r2_key": "a/v1/327f6149-95d1-46e7-876c-5e192ab63711/cbd54327-f4ef-4882-9ab6-30834d8f252b/riloyd-contact-office.png",
-  "original_filename": "riloyd-contact-office.png",
-  "size": 2742390,
   "content_type": "image/png",
-  "created_at": "2026-10-13T15:07:48Z"
+  "created_at": "2026-10-13T15:07:48Z",
+  "original_filename": "riloyd-contact-office.png",
+  "project_id": "e7168a0e-0844-4ba9-9b84-d50f52d79d68",
+  "r2_key": "a/v1/e7168a0e-0844-4ba9-9b84-d50f52d79d68/cbd54327-f4ef-4882-9ab6-30834d8f252b/riloyd-contact-office.png",
+  "size": 2742390,
+  "url": "/__l5e/assets-v1/cbd54327-f4ef-4882-9ab6-30834d8f252b/riloyd-contact-office.png",
+  "version": 1
 }

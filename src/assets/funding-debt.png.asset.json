@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "48d81b87-4800-4229-afe6-d937228c3fe3",
-  "project_id": "327f6149-95d1-46e7-876c-5e192ab63711",
-  "url": "/__l5e/assets-v1/48d81b87-4800-4229-afe6-d937228c3fe3/funding-debt.png",
-  "r2_key": "a/v1/327f6149-95d1-46e7-876c-5e192ab63711/48d81b87-4800-4229-afe6-d937228c3fe3/funding-debt.png",
-  "original_filename": "funding-debt.png",
-  "size": 130241,
   "content_type": "image/png",
-  "created_at": "2026-10-13T15:05:53Z"
+  "created_at": "2026-10-13T15:05:53Z",
+  "original_filename": "funding-debt.png",
+  "project_id": "e7168a0e-0844-4ba9-9b84-d50f52d79d68",
+  "r2_key": "a/v1/e7168a0e-0844-4ba9-9b84-d50f52d79d68/48d81b87-4800-4229-afe6-d937228c3fe3/funding-debt.png",
+  "size": 130241,
+  "url": "/__l5e/assets-v1/48d81b87-4800-4229-afe6-d937228c3fe3/funding-debt.png",
+  "version": 1
 }

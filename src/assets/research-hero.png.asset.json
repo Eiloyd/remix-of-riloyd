@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "0b01f962-3326-4d75-a9d0-bd7b8cd74b64",
-  "project_id": "327f6149-95d1-46e7-876c-5e192ab63711",
-  "url": "/__l5e/assets-v1/0b01f962-3326-4d75-a9d0-bd7b8cd74b64/research-hero.png",
-  "r2_key": "a/v1/327f6149-95d1-46e7-876c-5e192ab63711/0b01f962-3326-4d75-a9d0-bd7b8cd74b64/research-hero.png",
-  "original_filename": "research-hero.png",
-  "size": 2022487,
   "content_type": "image/png",
-  "created_at": "2026-10-13T15:07:09Z"
+  "created_at": "2026-10-13T15:07:09Z",
+  "original_filename": "research-hero.png",
+  "project_id": "e7168a0e-0844-4ba9-9b84-d50f52d79d68",
+  "r2_key": "a/v1/e7168a0e-0844-4ba9-9b84-d50f52d79d68/0b01f962-3326-4d75-a9d0-bd7b8cd74b64/research-hero.png",
+  "size": 2022487,
+  "url": "/__l5e/assets-v1/0b01f962-3326-4d75-a9d0-bd7b8cd74b64/research-hero.png",
+  "version": 1
 }

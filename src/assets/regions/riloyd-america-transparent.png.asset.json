@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "48598ec4-a9bc-4efa-931f-6a5449ee4cc8",
-  "project_id": "327f6149-95d1-46e7-876c-5e192ab63711",
-  "url": "/__l5e/assets-v1/48598ec4-a9bc-4efa-931f-6a5449ee4cc8/riloyd-america-transparent.png",
-  "r2_key": "a/v1/327f6149-95d1-46e7-876c-5e192ab63711/48598ec4-a9bc-4efa-931f-6a5449ee4cc8/riloyd-america-transparent.png",
-  "original_filename": "riloyd-america-transparent.png",
-  "size": 146476,
   "content_type": "image/png",
-  "created_at": "2026-10-13T15:09:44Z"
+  "created_at": "2026-10-13T15:09:44Z",
+  "original_filename": "riloyd-america-transparent.png",
+  "project_id": "e7168a0e-0844-4ba9-9b84-d50f52d79d68",
+  "r2_key": "a/v1/e7168a0e-0844-4ba9-9b84-d50f52d79d68/48598ec4-a9bc-4efa-931f-6a5449ee4cc8/riloyd-america-transparent.png",
+  "size": 146476,
+  "url": "/__l5e/assets-v1/48598ec4-a9bc-4efa-931f-6a5449ee4cc8/riloyd-america-transparent.png",
+  "version": 1
 }
