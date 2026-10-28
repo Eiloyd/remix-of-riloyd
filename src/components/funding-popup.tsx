@@ -81,7 +81,7 @@ export function FundingPopup() {
           </button>
           <div className="grid md:grid-cols-[1fr_1.05fr]">
             <div className="bg-background">
-              <img
+              <img decoding="async"
                 src={posterAsset}
                 alt="Riloyd Startup Funding Programme – Grant up to ₹22.5 Lakhs for the top 3 startups: 1st ₹10 Lakhs, 2nd ₹7.5 Lakhs, 3rd ₹5 Lakhs"
                 width={1086}

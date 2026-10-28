@@ -28,7 +28,7 @@ const principles = [
 export function PeoplePage({ eyebrow, title, accent, intro, sectionTitle, items, cta, ctaTo, group, children }: PeoplePageProps) {
   return <main className="overflow-hidden bg-background text-foreground">
     <section className="relative min-h-[540px] overflow-hidden border-b border-border">
-      <img src={lobbyAsset} alt="Riloyd corporate lobby and business community" className="absolute inset-0 h-full w-full object-cover object-center" decoding="async" fetchPriority="high" />
+      <img decoding="async" src={lobbyAsset} alt="Riloyd corporate lobby and business community" className="absolute inset-0 h-full w-full object-cover object-center" decoding="async" fetchPriority="high" />
       <div className="hero-shade absolute inset-0" />
       <div className="relative z-10 mx-auto flex min-h-[540px] max-w-[1380px] items-center px-5 py-14 sm:px-6 lg:px-12"><div className="max-w-3xl"><p className="eyebrow text-xs font-bold uppercase text-soft">{eyebrow}</p><h1 className="headline mt-5 text-[clamp(2.7rem,5.5vw,5.4rem)] font-black uppercase leading-[.92]">{title}<br /><span className="text-primary">{accent}</span></h1><p className="mt-6 max-w-xl text-sm leading-relaxed text-soft sm:text-base">{intro}</p><Button asChild size="lg" className="mt-7 rounded-full px-7 font-bold"><Link to={ctaTo}>{cta} <ArrowRight size={16} /></Link></Button></div></div>
     </section>

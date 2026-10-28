@@ -48,7 +48,7 @@ function ServiceDetail() {
       {service.slug === "business-research-analysis-strategy" ? <ResearchDetail /> : service.slug === "business-funding" ? <FundingDetail /> : service.slug === "manpower-service" ? <ManpowerDetail /> : service.slug === "business-transformation" ? <TransformationDetail /> : service.slug === "sales-revenue-growth" ? <GrowthDetail /> : service.slug === "startup-business-incubation-centers" ? <IncubationDetail /> : <>
       <section className="relative border-b border-border">
         {service.image ? (
-          <img src={service.image} alt={service.imageAlt} className="absolute inset-0 h-full w-full object-cover" decoding="async" />
+          <img decoding="async" src={service.image} alt={service.imageAlt} className="absolute inset-0 h-full w-full object-cover" decoding="async" />
         ) : null}
         <div className="hero-shade absolute inset-0" />
         <div className="relative z-10 mx-auto max-w-[1380px] px-5 py-20 sm:px-6 lg:px-12 lg:py-28">

@@ -55,7 +55,7 @@ export function EmployeeVerify() {
         {card && <article className="w-full max-w-md overflow-hidden rounded-lg border border-border bg-background text-foreground shadow-xl">
           <div className="bg-primary px-5 py-3 text-xs font-black uppercase tracking-wider text-primary-foreground">Riloyd · Employee ID Card</div>
           <div className="flex gap-5 p-5">
-            {card.photo_url ? <img src={card.photo_url} width={96} height={112} decoding="async" alt={card.full_name} className="h-28 w-24 shrink-0 rounded object-cover" /> : <span className="flex h-28 w-24 shrink-0 items-center justify-center rounded bg-surface text-2xl font-black">{initials(card.full_name)}</span>}
+            {card.photo_url ? <img decoding="async" src={card.photo_url} width={96} height={112} decoding="async" alt={card.full_name} className="h-28 w-24 shrink-0 rounded object-cover" /> : <span className="flex h-28 w-24 shrink-0 items-center justify-center rounded bg-surface text-2xl font-black">{initials(card.full_name)}</span>}
             <div className="min-w-0 text-sm">
               <h3 className="text-lg font-black">{card.full_name}</h3>
               <p className="font-bold text-primary">{card.designation}</p>
