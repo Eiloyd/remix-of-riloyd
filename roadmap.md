@@ -1,4 +1,8 @@
 ## In progress
+- [ ] Save four registration types and private documents
+- [ ] Save contact enquiries and show applications/enquiries with review status in Admin Panel
+- [ ] Verify submission, private access and admin review end to end
+- [ ] Owner email notifications (requires verified sending domain and recipient)
 - [ ] Add real investor, mentor and team profiles when names, roles and photos are supplied
 
 ## Done
@@ -26,4 +30,4 @@
 - [x] About page with generated imagery
 
 - [x] Homepage Startup Funding popup (poster + Apply form, floating Apply Now button)
-- [ ] Store popup applications in the database (currently validated only)
+- [x] Summit popup uses the existing Zoho registration form; submissions remain in Zoho
