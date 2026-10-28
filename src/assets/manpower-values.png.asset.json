@@ -1,11 +1,11 @@
 {
-  "asset_id": "2cb4f099-90c3-437d-ac06-7e95c69c3e8d",
-  "content_type": "image/png",
-  "created_at": "2026-10-13T15:07:03Z",
-  "original_filename": "manpower-values.png",
-  "project_id": "e7168a0e-0844-4ba9-9b84-d50f52d79d68",
-  "r2_key": "a/v1/e7168a0e-0844-4ba9-9b84-d50f52d79d68/2cb4f099-90c3-437d-ac06-7e95c69c3e8d/manpower-values.png",
-  "size": 2389241,
-  "url": "/__l5e/assets-v1/2cb4f099-90c3-437d-ac06-7e95c69c3e8d/manpower-values.png",
-  "version": 1
+  "version": 1,
+  "asset_id": "3f6a96cb-ba81-407c-8bde-47d4cd4db860",
+  "project_id": "9d2636be-651a-4151-9fb2-b9b514ccdfc1",
+  "url": "/__l5e/assets-v1/3f6a96cb-ba81-407c-8bde-47d4cd4db860/manpower-values.png.compact.webp",
+  "r2_key": "a/v1/9d2636be-651a-4151-9fb2-b9b514ccdfc1/3f6a96cb-ba81-407c-8bde-47d4cd4db860/manpower-values.png.compact.webp",
+  "original_filename": "manpower-values.png.compact.webp",
+  "size": 321236,
+  "content_type": "image/webp",
+  "created_at": "2026-10-28T07:40:36Z"
 }

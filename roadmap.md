@@ -1,4 +1,7 @@
 ## In progress
+- [x] Audit 111 hosted images; optimize 33 original pointers and 31 local images, preserve logo pixels/dimensions/transparency, retain already-smaller WebP and verify public image loading
+- [x] Save compressed images and hosted asset references in project for managed Git sync
+- [ ] Confirm optimized changes reached Git repository (blocked: Git connection and sync status are only visible in user Git settings)
 - [x] Add admin-only read-only setup comparison; schema, nullability, RLS, function-name and private storage checks, empty Drizzle warning, unit tests and signed-out gate verified
 - [ ] Verify setup check through signed-in admin UI (blocked: remixed backend has no auth users; owner must create an account and receive admin access)
 - [x] Add footer Downloads page, admin report uploads, private storage and matching report number/publish date download flow; verified admin upload, signed-out exact-file download, wrong-number/date rejection and withdrawal blocking

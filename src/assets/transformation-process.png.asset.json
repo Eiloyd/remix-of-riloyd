@@ -1,11 +1,11 @@
 {
-  "asset_id": "e15cd03b-0a35-4886-83a4-ed0af743acf7",
-  "content_type": "image/png",
-  "created_at": "2026-10-13T15:09:29Z",
-  "original_filename": "transformation-process.png",
-  "project_id": "e7168a0e-0844-4ba9-9b84-d50f52d79d68",
-  "r2_key": "a/v1/e7168a0e-0844-4ba9-9b84-d50f52d79d68/e15cd03b-0a35-4886-83a4-ed0af743acf7/transformation-process.png",
-  "size": 2260821,
-  "url": "/__l5e/assets-v1/e15cd03b-0a35-4886-83a4-ed0af743acf7/transformation-process.png",
-  "version": 1
+  "version": 1,
+  "asset_id": "d7ceb433-b491-428a-bddd-96895ddd5ac4",
+  "project_id": "9d2636be-651a-4151-9fb2-b9b514ccdfc1",
+  "url": "/__l5e/assets-v1/d7ceb433-b491-428a-bddd-96895ddd5ac4/transformation-process.png.compact.webp",
+  "r2_key": "a/v1/9d2636be-651a-4151-9fb2-b9b514ccdfc1/d7ceb433-b491-428a-bddd-96895ddd5ac4/transformation-process.png.compact.webp",
+  "original_filename": "transformation-process.png.compact.webp",
+  "size": 245262,
+  "content_type": "image/webp",
+  "created_at": "2026-10-28T07:40:45Z"
 }

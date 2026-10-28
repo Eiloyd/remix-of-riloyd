@@ -1,11 +1,11 @@
 {
-  "asset_id": "0e85ec49-4f25-4265-a70d-03c0c44a4343",
-  "content_type": "image/png",
-  "created_at": "2026-10-13T15:09:17Z",
-  "original_filename": "transformation-hero.png",
-  "project_id": "e7168a0e-0844-4ba9-9b84-d50f52d79d68",
-  "r2_key": "a/v1/e7168a0e-0844-4ba9-9b84-d50f52d79d68/0e85ec49-4f25-4265-a70d-03c0c44a4343/transformation-hero.png",
-  "size": 1759979,
-  "url": "/__l5e/assets-v1/0e85ec49-4f25-4265-a70d-03c0c44a4343/transformation-hero.png",
-  "version": 1
+  "version": 1,
+  "asset_id": "d0f7cf14-2305-44f7-96be-7f10fc93dec0",
+  "project_id": "9d2636be-651a-4151-9fb2-b9b514ccdfc1",
+  "url": "/__l5e/assets-v1/d0f7cf14-2305-44f7-96be-7f10fc93dec0/transformation-hero.png.compact.webp",
+  "r2_key": "a/v1/9d2636be-651a-4151-9fb2-b9b514ccdfc1/d0f7cf14-2305-44f7-96be-7f10fc93dec0/transformation-hero.png.compact.webp",
+  "original_filename": "transformation-hero.png.compact.webp",
+  "size": 155884,
+  "content_type": "image/webp",
+  "created_at": "2026-10-28T07:40:45Z"
 }
