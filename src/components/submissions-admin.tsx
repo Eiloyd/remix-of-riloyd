@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { ArrowLeft, ArrowRight, Download, FileText, RefreshCw, Save, Sheet, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Download, FileText, RefreshCw, Save, Sheet, Sparkles, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { summarizeRegistration, type RegistrationAiSummary } from "@/lib/registration-ai.functions";
 import { downloadRegistrationDocument, listInbox, reviewInbox } from "@/lib/inbox.functions";
 import { reviewStatuses } from "@/lib/submission-schemas";
 import { registrationConfigs, type RegistrationCategory } from "@/lib/registration-config";
@@ -23,6 +24,13 @@ export function SubmissionsAdmin({ kind }: { kind: "applications" | "enquiries" 
   const list = useServerFn(listInbox);
   const review = useServerFn(reviewInbox);
   const download = useServerFn(downloadRegistrationDocument);
+  const summarize = useServerFn(summarizeRegistration);
+  const [ai, setAi] = useState<{ id: string; summary: RegistrationAiSummary | null; error: string | null; loading: boolean } | null>(null);
+  const runSummary = async (id: string) => {
+    setAi({ id, summary: null, error: null, loading: true });
+    try { const result = await summarize({ data: { id } }); setAi({ id, ...result, loading: false }); }
+    catch { setAi({ id, summary: null, error: "The AI summary could not be created.", loading: false }); }
+  };
   const [rows, setRows] = useState<Row[]>([]);
   const [count, setCount] = useState(0);
   const [page, setPage] = useState(0);
@@ -124,7 +132,7 @@ export function SubmissionsAdmin({ kind }: { kind: "applications" | "enquiries" 
         <DialogTitle>{selected && ("full_name" in selected ? selected.full_name : selected.name)}</DialogTitle>
         <DialogDescription>{selected?.email} · {selected?.phone}</DialogDescription>
         <Button variant="outline" disabled={!pdf || pdfLoading} onClick={() => { if (pdf) void deliverFile(pdf.blob, pdf.name); }}><FileText size={16} /> {pdfLoading ? "Preparing PDF…" : "Download PDF"}</Button>
-        {selected && "category" in selected ? <><p className="text-sm font-bold">{selected.category} · {selected.application_code}</p><dl className="grid gap-3">{Object.entries(details).filter(([key]) => key !== "consent").map(([key, value]) => <div key={key} className="border-b border-border pb-3"><dt className="text-xs font-bold text-muted-foreground">{labels[key] ?? key}</dt><dd className="mt-1 whitespace-pre-wrap break-words text-sm">{Array.isArray(value) ? value.join(", ") : String(value ?? "")}</dd></div>)}</dl>{selected.document_path && <Button variant="outline" disabled={busy} onClick={() => void downloadDocument()}><Download size={16} /> {selected.document_name}</Button>}</> : selected ? <dl className="space-y-3"><div><dt className="text-xs text-muted-foreground">Service / Industry</dt><dd>{selected.service} · {selected.industry}</dd></div><div><dt className="text-xs text-muted-foreground">Message</dt><dd className="whitespace-pre-wrap break-words">{selected.message}</dd></div></dl> : null}
+        {selected && "category" in selected ? <><p className="text-sm font-bold">{selected.category} · {selected.application_code}</p><div className="rounded-md border border-border bg-surface p-4"><div className="flex flex-wrap items-center justify-between gap-2"><p className="text-sm font-bold">AI review summary</p><Button size="sm" variant="outline" disabled={ai?.id === selected.id && ai.loading} onClick={() => void runSummary(selected.id)}><Sparkles size={15} /> {ai?.id === selected.id && ai.loading ? "Summarising…" : ai?.id === selected.id && ai.summary ? "Regenerate" : "Summarise with AI"}</Button></div>{ai?.id === selected.id && ai.error && <p role="alert" className="mt-3 text-sm text-destructive">{ai.error}</p>}{ai?.id === selected.id && ai.summary && <div className="mt-3 grid gap-4 text-sm">{([["Key information", ai.summary.keyPoints], ["Missing or unclear details", ai.summary.missingDetails], ["Questions to ask before approval", ai.summary.reviewQuestions]] as const).map(([heading, items]) => <div key={heading}><p className="text-xs font-bold uppercase text-muted-foreground">{heading}</p>{items.length ? <ul className="mt-1 list-disc space-y-1 pl-5">{items.map(item => <li key={item}>{item}</li>)}</ul> : <p className="mt-1 text-muted-foreground">Nothing noted.</p>}</div>)}<p className="text-xs text-muted-foreground">AI-generated from the submitted form (contact details excluded). Verify before deciding.</p></div>}</div><dl className="grid gap-3">{Object.entries(details).filter(([key]) => key !== "consent").map(([key, value]) => <div key={key} className="border-b border-border pb-3"><dt className="text-xs font-bold text-muted-foreground">{labels[key] ?? key}</dt><dd className="mt-1 whitespace-pre-wrap break-words text-sm">{Array.isArray(value) ? value.join(", ") : String(value ?? "")}</dd></div>)}</dl>{selected.document_path && <Button variant="outline" disabled={busy} onClick={() => void downloadDocument()}><Download size={16} /> {selected.document_name}</Button>}</> : selected ? <dl className="space-y-3"><div><dt className="text-xs text-muted-foreground">Service / Industry</dt><dd>{selected.service} · {selected.industry}</dd></div><div><dt className="text-xs text-muted-foreground">Message</dt><dd className="whitespace-pre-wrap break-words">{selected.message}</dd></div></dl> : null}
         <div className="grid gap-2"><Label htmlFor={`${kind}-status`}>Review status</Label><select id={`${kind}-status`} className={selectClass} value={status} onChange={e => setStatus(e.target.value as Status)}>{reviewStatuses.map(value => <option key={value} value={value}>{value}</option>)}</select></div>
         <div className="grid gap-2"><Label htmlFor={`${kind}-notes`}>Private admin notes</Label><Textarea id={`${kind}-notes`} value={notes} maxLength={4000} onChange={e => setNotes(e.target.value)} /></div>
         {message && <p role="alert" className="text-sm text-primary">{message}</p>}
