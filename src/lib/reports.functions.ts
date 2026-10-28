@@ -15,6 +15,7 @@ export const findReport = createServerFn({ method: "POST" })
     const { data: signed, error: fileError } = await supabaseAdmin.storage.from("customer-reports").createSignedUrl(report.file_path, 60, { download: report.file_name });
     if (fileError || !signed) throw new Error("The report could not be downloaded.");
     const storageUrl = import.meta.env.VITE_SUPABASE_URL;
+    if (!storageUrl) throw new Error("Report downloads are unavailable right now. Please try again.");
     const url = new URL(signed.signedUrl);
     const browserUrl = new URL(storageUrl);
     url.protocol = browserUrl.protocol; url.host = browserUrl.host;
