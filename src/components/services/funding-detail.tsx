@@ -75,7 +75,7 @@ export function FundingDetail() {
   return (
     <>
       <section className="relative overflow-hidden border-b border-border">
-        <img src={heroAsset} alt="Riloyd office desk with growth charts and city skyline at sunset" className="absolute inset-0 h-full w-full object-cover" decoding="async" fetchPriority="high" />
+        <img decoding="async" src={heroAsset} alt="Riloyd office desk with growth charts and city skyline at sunset" className="absolute inset-0 h-full w-full object-cover" decoding="async" fetchPriority="high" />
         <div className="hero-shade absolute inset-0" />
         <div className="relative z-10 mx-auto max-w-[1380px] px-5 py-16 sm:px-6 lg:px-12 lg:py-24">
           <nav className="flex items-center gap-2 text-xs text-soft">
@@ -106,7 +106,7 @@ export function FundingDetail() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {fundingTypes.map(([img, Icon, title, items]) => (
               <article key={title} className="group relative overflow-hidden rounded-md border border-border">
-                <img src={img} alt={title} className="h-44 w-full object-cover" loading="lazy" decoding="async" />
+                <img decoding="async" src={img} alt={title} className="h-44 w-full object-cover" loading="lazy" decoding="async" />
                 <div className="bg-card p-6 text-card-foreground">
                   <span className="-mt-12 mb-4 flex h-14 w-14 items-center justify-center rounded-full border-2 border-primary bg-background text-primary">
                     <Icon size={22} />
