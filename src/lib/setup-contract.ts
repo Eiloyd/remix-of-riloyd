@@ -12,16 +12,18 @@ export function parseSqlTables(source: string): Table[] {
   // Copied declarations remain useful expectations even when their replay was disabled.
   const sql = source.replace(/^-- /gm, '');
   return Array.from(sql.matchAll(/CREATE TABLE public\.(\w+)\s*\(([\s\S]*?)\n\);/g), match => ({
-    name: match[1], rls: true,
-    columns: match[2].split('\n').flatMap(line => {
+    name: match[1] ?? '', rls: true,
+    columns: (match[2] ?? '').split('\n').flatMap(line => {
       const column = line.trim().match(/^(\w+)\s+(uuid|text|jsonb|timestamptz|integer|boolean|date|bigint)\b(.*)/i);
-      return column ? [{ name: column[1], type: normalizeType(column[2]), nullable: !/NOT NULL|PRIMARY KEY/i.test(column[3]) }] : [];
+      if (!column?.[1] || !column[2]) return [];
+      return [{ name: column[1], type: normalizeType(column[2]), nullable: !/NOT NULL|PRIMARY KEY/i.test(column[3] ?? '') }];
     }),
   }));
 }
-const baseline = (name: string, fields: string): Table => ({ name, rls: true, columns: fields.split(' ').map(field => {
+const baseline = (name: string, fields: string): Table => ({ name, rls: true, columns: fields.split(' ').flatMap(field => {
   const [column, type] = field.split(':');
-  return { name: column, type: normalizeType(type.replace('?', '')), nullable: type.endsWith('?') };
+  if (!column || !type) return [];
+  return [{ name: column, type: normalizeType(type.replace('?', '')), nullable: type.endsWith('?') }];
 }) });
 export const expectedTables: Table[] = [
   ...parseSqlTables(inboxSource), ...parseSqlTables(reportsSource),
