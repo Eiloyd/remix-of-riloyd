@@ -299,6 +299,7 @@ export type Database = {
         }
         Returns: undefined
       }
+      admin_setup_metadata: { Args: never; Returns: Json }
       consume_form_submission_limit: {
         Args: { _key_hash: string }
         Returns: boolean
