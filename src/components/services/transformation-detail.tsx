@@ -4,11 +4,11 @@ import {
   Coins, Gauge, GitBranch, Monitor, Search, Settings, Target, Users, Workflow,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroAsset from "@/assets/transformation-hero.png.optimized.webp.asset.json";
-import overviewAsset from "@/assets/transformation-overview.png.optimized.webp.asset.json";
-import processAsset from "@/assets/transformation-process.png.optimized.webp.asset.json";
-import reportAsset from "@/assets/transformation-report.png.optimized.webp.asset.json";
-import stairsAsset from "@/assets/transformation-stairs.png.optimized.webp.asset.json";
+import heroAsset from "@/assets/local/transformation-hero.png.optimized.webp";
+import overviewAsset from "@/assets/local/transformation-overview.png.optimized.webp";
+import processAsset from "@/assets/local/transformation-process.png.optimized.webp";
+import reportAsset from "@/assets/local/transformation-report.png.optimized.webp";
+import stairsAsset from "@/assets/local/transformation-stairs.png.optimized.webp";
 
 const solutions = [
   [BarChart3, "Business Assessment & Transformation Strategy", "Understand your current position and build a clear transformation roadmap."],
@@ -49,7 +49,7 @@ export function TransformationDetail() {
   return (
     <>
       <section className="relative overflow-hidden border-b border-border">
-        <img src={heroAsset.url} alt="Chess pieces on a boardroom table overlooking a city at sunset" className="absolute inset-0 h-full w-full object-cover object-center" decoding="async" fetchPriority="high" />
+        <img src={heroAsset} alt="Chess pieces on a boardroom table overlooking a city at sunset" className="absolute inset-0 h-full w-full object-cover object-center" decoding="async" fetchPriority="high" />
         <div className="hero-shade absolute inset-0" />
         <div className="relative z-10 mx-auto max-w-[1380px] px-5 py-16 sm:px-6 lg:px-12 lg:py-24">
           <nav className="flex items-center gap-2 text-xs text-soft">
@@ -72,7 +72,7 @@ export function TransformationDetail() {
 
       <section className="border-b border-border bg-card text-card-foreground">
         <div className="mx-auto grid max-w-[1380px] items-center gap-10 px-5 py-16 sm:px-6 lg:grid-cols-2 lg:px-12">
-          <img src={overviewAsset.url} alt="Riloyd office overlooking mountains at sunrise" className="aspect-[16/11] w-full rounded-md object-cover" loading="lazy" decoding="async" />
+          <img src={overviewAsset} alt="Riloyd office overlooking mountains at sunrise" className="aspect-[16/11] w-full rounded-md object-cover" loading="lazy" decoding="async" />
           <div>
             <Eyebrow onLight>What we do</Eyebrow>
             <h2 className="mt-4 text-3xl font-black uppercase leading-[0.98] sm:text-4xl">
@@ -97,7 +97,7 @@ export function TransformationDetail() {
       </section>
 
       <section className="relative overflow-hidden border-b border-border">
-        <img src={processAsset.url} alt="Mountain trail leading towards a summit" className="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+        <img src={processAsset} alt="Mountain trail leading towards a summit" className="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
         <div className="hero-shade absolute inset-0" />
         <div className="relative z-10 mx-auto max-w-[1380px] px-5 py-16 sm:px-6 lg:px-12">
           <Eyebrow>Our transformation process</Eyebrow>
@@ -128,12 +128,12 @@ export function TransformationDetail() {
               ))}
             </div>
           </div>
-          <img src={reportAsset.url} alt="Riloyd business transformation report on a desk" className="aspect-[4/3] w-full rounded-md object-cover" loading="lazy" decoding="async" />
+          <img src={reportAsset} alt="Riloyd business transformation report on a desk" className="aspect-[4/3] w-full rounded-md object-cover" loading="lazy" decoding="async" />
         </div>
       </section>
 
       <section className="relative overflow-hidden border-b border-border">
-        <img src={stairsAsset.url} alt="Illuminated staircase leading towards a city skyline" className="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+        <img src={stairsAsset} alt="Illuminated staircase leading towards a city skyline" className="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
         <div className="hero-shade absolute inset-0" />
         <div className="relative z-10 mx-auto max-w-[1380px] px-5 py-16 sm:px-6 lg:px-12">
           <h2 className="headline max-w-2xl text-3xl font-black uppercase leading-[0.98] sm:text-5xl">

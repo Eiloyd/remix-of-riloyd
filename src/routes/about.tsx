@@ -23,15 +23,15 @@ import {
   UsersRound,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImageAsset from "@/assets/about-global-hero.jpg.optimized.webp.asset.json";
-const heroImage = heroImageAsset.url;
-import leadershipImageAsset from "@/assets/about-leadership.jpg.optimized.webp.asset.json";
-const leadershipImage = leadershipImageAsset.url;
-import visionImageAsset from "@/assets/about-vision.jpg.optimized.webp.asset.json";
-const visionImage = visionImageAsset.url;
-import mapImageAsset from "@/assets/global-map.jpg.optimized.webp.asset.json";
-const mapImage = mapImageAsset.url;
-import logoAsset from "@/assets/riloyd-logo.png.optimized.webp.asset.json";
+import heroImageAsset from "@/assets/local/about-global-hero.jpg.optimized.webp";
+const heroImage = heroImageAsset;
+import leadershipImageAsset from "@/assets/local/about-leadership.jpg.optimized.webp";
+const leadershipImage = leadershipImageAsset;
+import visionImageAsset from "@/assets/local/about-vision.jpg.optimized.webp";
+const visionImage = visionImageAsset;
+import mapImageAsset from "@/assets/local/global-map.jpg.optimized.webp";
+const mapImage = mapImageAsset;
+import logoAsset from "@/assets/local/riloyd-logo.png.optimized.webp";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -112,7 +112,7 @@ const differentiators = [
 const markets = ["India", "Singapore", "UAE", "UK", "USA", "Canada", "Australia", "Europe"];
 
 function ImageBrand() {
-  return <img src={logoAsset.url} alt="Riloyd" className="absolute right-5 top-5 z-20 h-9 w-auto object-contain sm:right-8 sm:top-8 sm:h-11" decoding="async" />;
+  return <img src={logoAsset} alt="Riloyd" className="absolute right-5 top-5 z-20 h-9 w-auto object-contain sm:right-8 sm:top-8 sm:h-11" decoding="async" />;
 }
 
 function AboutPage() {

@@ -3,9 +3,9 @@ import {
   ArrowRight, BadgeCheck, BarChart3, CalendarDays, ChevronRight, ClipboardList, FileText,
   Headphones, MessageSquare, Search, Settings, ShieldCheck, TrendingUp, UserPlus, Users, Wallet,
 } from "lucide-react";
-import heroAsset from "@/assets/manpower-hero.png.optimized.webp.asset.json";
-import valuesAsset from "@/assets/manpower-values.png.optimized.webp.asset.json";
-import teamAsset from "@/assets/manpower-team.png.optimized.webp.asset.json";
+import heroAsset from "@/assets/local/manpower-hero.png.optimized.webp";
+import valuesAsset from "@/assets/local/manpower-values.png.optimized.webp";
+import teamAsset from "@/assets/local/manpower-team.png.optimized.webp";
 
 const heroPoints = [
   [Users, "Skilled Workforce"],
@@ -53,7 +53,7 @@ export function ManpowerDetail() {
   return (
     <>
       <section className="relative overflow-hidden border-b border-border">
-        <img src={heroAsset.url} alt="Riloyd boardroom overlooking a city skyline at sunset" className="absolute inset-0 h-full w-full object-cover" decoding="async" fetchPriority="high" />
+        <img src={heroAsset} alt="Riloyd boardroom overlooking a city skyline at sunset" className="absolute inset-0 h-full w-full object-cover" decoding="async" fetchPriority="high" />
         <div className="hero-shade absolute inset-0" />
         <div className="relative z-10 mx-auto max-w-[1380px] px-5 py-16 sm:px-6 lg:px-12 lg:py-24">
           <nav className="flex items-center gap-2 text-xs text-soft">
@@ -87,7 +87,7 @@ export function ManpowerDetail() {
 
       <section className="border-b border-border bg-card text-card-foreground">
         <div className="mx-auto grid max-w-[1380px] items-center gap-10 px-5 py-16 sm:px-6 lg:grid-cols-2 lg:px-12">
-          <img src={valuesAsset.url} alt="Riloyd office wall reading people, process, performance, growth" className="w-full rounded-md object-cover" loading="lazy" decoding="async" />
+          <img src={valuesAsset} alt="Riloyd office wall reading people, process, performance, growth" className="w-full rounded-md object-cover" loading="lazy" decoding="async" />
           <div>
             <Eyebrow onLight>What we do</Eyebrow>
             <h2 className="mt-4 text-3xl font-black uppercase leading-[0.98] sm:text-4xl">
@@ -114,7 +114,7 @@ export function ManpowerDetail() {
       </section>
 
       <section className="relative overflow-hidden border-b border-border">
-        <img src={teamAsset.url} alt="Business team meeting at sunset" className="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+        <img src={teamAsset} alt="Business team meeting at sunset" className="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
         <div className="hero-shade absolute inset-0" />
         <div className="relative z-10 mx-auto max-w-[1380px] px-5 py-16 sm:px-6 lg:px-12">
           <Eyebrow>Our process</Eyebrow>
@@ -154,7 +154,7 @@ export function ManpowerDetail() {
       </section>
 
       <section className="relative overflow-hidden border-b border-border">
-        <img src={heroAsset.url} alt="Riloyd office at sunset" className="absolute inset-0 h-full w-full object-cover" decoding="async" fetchPriority="high" />
+        <img src={heroAsset} alt="Riloyd office at sunset" className="absolute inset-0 h-full w-full object-cover" decoding="async" fetchPriority="high" />
         <div className="hero-shade absolute inset-0" />
         <div className="relative z-10 mx-auto max-w-[1380px] px-5 py-16 sm:px-6 lg:px-12">
           <h2 className="headline text-3xl font-black uppercase leading-[0.98] sm:text-5xl">

@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight, Check, CheckCircle2, FileUp, LockKeyhole } from 
 import { Button } from "@/components/ui/button";
 import { submitRegistration } from "@/lib/registration.functions";
 import type { RegistrationConfig, RegistrationField } from "@/lib/registration-config";
-import teamAsset from "@/assets/riloyd-team.png.optimized.webp.asset.json";
+import teamAsset from "@/assets/local/riloyd-team.png.optimized.webp";
 
 const inputClass = "min-h-12 w-full rounded-md border border-border bg-surface px-4 text-sm text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary";
 
@@ -57,7 +57,7 @@ export function RegistrationPage({ config }: { config: RegistrationConfig }) {
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
       <section className="registration-hero relative overflow-hidden border-b border-border">
-        <img src={teamAsset.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+        <img src={teamAsset} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
         <div className="registration-grid absolute inset-0 opacity-50" />
         <div className="relative mx-auto flex min-h-[340px] max-w-[1380px] items-center px-5 py-12 sm:px-6 lg:px-12">

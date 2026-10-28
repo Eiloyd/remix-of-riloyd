@@ -1,18 +1,18 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, BadgeCheck, BarChart3, BriefcaseBusiness, Building2, ChevronRight, CircleDollarSign, Cog, FileCheck2, Layers3, Lightbulb, Network, Rocket, ShieldCheck, UsersRound, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import lobbyAsset from "@/assets/riloyd-sunset-corporate-lobby.png.optimized.webp.asset.json";
-import coworkingAsset from "@/assets/incubation-coworking.png.optimized.webp.asset.json";
-import cabinsAsset from "@/assets/incubation-private-cabins.png.optimized.webp.asset.json";
-import virtualOfficeAsset from "@/assets/incubation-virtual-office.png.optimized.webp.asset.json";
-import meetingRoomsAsset from "@/assets/incubation-meeting-rooms.png.optimized.webp.asset.json";
-import loungeAsset from "@/assets/incubation-community-lounge.webp.asset.json";
-import communityImageAsset from "@/assets/incubation-community.jpg.optimized.webp.asset.json";
-const communityImage = communityImageAsset.url;
-import futureImageAsset from "@/assets/incubation-future.jpg.optimized.webp.asset.json";
-const futureImage = futureImageAsset.url;
+import lobbyAsset from "@/assets/local/riloyd-sunset-corporate-lobby.png.optimized.webp";
+import coworkingAsset from "@/assets/local/incubation-coworking.png.optimized.webp";
+import cabinsAsset from "@/assets/local/incubation-private-cabins.png.optimized.webp";
+import virtualOfficeAsset from "@/assets/local/incubation-virtual-office.png.optimized.webp";
+import meetingRoomsAsset from "@/assets/local/incubation-meeting-rooms.png.optimized.webp";
+import loungeAsset from "@/assets/local/incubation-community-lounge.webp";
+import communityImageAsset from "@/assets/local/incubation-community.jpg.optimized.webp";
+const communityImage = communityImageAsset;
+import futureImageAsset from "@/assets/local/incubation-future.jpg.optimized.webp";
+const futureImage = futureImageAsset;
 
-const lobbyImage = lobbyAsset.url;
+const lobbyImage = lobbyAsset;
 
 const services = [
   { icon: Building2, title: "Workspace", copy: "Flexible desks, private cabins and meeting spaces for teams at every stage." },
@@ -27,11 +27,11 @@ const services = [
 ];
 
 const spaces = [
-  { title: "Co-working", copy: "Room to connect and create.", image: coworkingAsset.url, alt: "Riloyd co-working floor with open desks, city skyline and branded lounge wall" },
-  { title: "Private Cabins", copy: "Space for a focused team.", image: cabinsAsset.url, alt: "Riloyd private cabins along a glass corridor with city view" },
-  { title: "Virtual Office", copy: "A professional business base.", image: virtualOfficeAsset.url, alt: "Riloyd virtual office reception with business address and support services" },
-  { title: "Meeting Rooms", copy: "Make every conversation count.", image: meetingRoomsAsset.url, alt: "Riloyd boardroom meeting room with presentation screen and city view" },
-  { title: "Community Lounge", copy: "Ideas grow together.", image: loungeAsset.url, alt: "Riloyd community lounge with sofas, cafe and startup community" },
+  { title: "Co-working", copy: "Room to connect and create.", image: coworkingAsset, alt: "Riloyd co-working floor with open desks, city skyline and branded lounge wall" },
+  { title: "Private Cabins", copy: "Space for a focused team.", image: cabinsAsset, alt: "Riloyd private cabins along a glass corridor with city view" },
+  { title: "Virtual Office", copy: "A professional business base.", image: virtualOfficeAsset, alt: "Riloyd virtual office reception with business address and support services" },
+  { title: "Meeting Rooms", copy: "Make every conversation count.", image: meetingRoomsAsset, alt: "Riloyd boardroom meeting room with presentation screen and city view" },
+  { title: "Community Lounge", copy: "Ideas grow together.", image: loungeAsset, alt: "Riloyd community lounge with sofas, cafe and startup community" },
 ];
 
 const journey = [
