@@ -53,6 +53,45 @@ export type Database = {
         }
         Relationships: []
       }
+      customer_reports: {
+        Row: {
+          active: boolean
+          category: string
+          created_at: string
+          file_name: string
+          file_path: string
+          file_size: number
+          id: string
+          publish_date: string
+          report_number: string
+          title: string
+        }
+        Insert: {
+          active?: boolean
+          category: string
+          created_at?: string
+          file_name: string
+          file_path: string
+          file_size: number
+          id?: string
+          publish_date: string
+          report_number: string
+          title: string
+        }
+        Update: {
+          active?: boolean
+          category?: string
+          created_at?: string
+          file_name?: string
+          file_path?: string
+          file_size?: number
+          id?: string
+          publish_date?: string
+          report_number?: string
+          title?: string
+        }
+        Relationships: []
+      }
       employee_verification_attempts: {
         Row: {
           created_at: string
