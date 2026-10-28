@@ -22,4 +22,5 @@
 - Keep market content centralized and render each country through `/global-presence/$slug`, so the hub and the footer country list stay consistent.
 - Keep Investors, Mentors and Team as public pages; employee verification goes through security-definer database functions and admins manage records at `/admin`, so codes stay hashed and never reach the browser.
 - Optimize static images offline before serving them; preserve dimensions and transparency, use lossless compression for logos, and keep the original format when conversion would increase file size, so appearance stays consistent without runtime image processing.
+- Import static website images directly from local frontend asset files so managed Git sync includes the actual image bytes; retain unused historical CDN pointers without deleting hosted assets to preserve earlier deployments.
 - Investor, Mentor and Team profiles live in the backend, are readable only by signed-in users and editable only by admins at /admin, so no sample or private profile data ships in the site code.
