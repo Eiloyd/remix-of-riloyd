@@ -1,4 +1,5 @@
 ## In progress
+- [ ] Add admin-only read-only schema/setup comparison and verify authorization and live checks without modifying data
 - [x] Add footer Downloads page, admin report uploads, private storage and matching report number/publish date download flow; verified admin upload, signed-out exact-file download, wrong-number/date rejection and withdrawal blocking
 - [x] Show registration categories clearly in admin and add per-entry PDF / all-entry Excel downloads; verified real form submissions, PDF contents and both Excel sheets
 - [x] Save four registration types and private documents; verified all four through the website and confirmed saved rows
